@@ -31,12 +31,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const productImage = getPrimaryImage(product) || category?.image.url || '';
   const productDescription = richContentToPlainText(product.shortDescription) || richContentToPlainText(product.description);
   const canonicalPath = getProductPath(product.id, product.name, product.slug);
-  const seoTitle = product.seo?.title || `${product.name} Printing in London`;
+  const seoTitle = product.seo?.title || `${product.name} T-Shirt Printing UK`;
   const seoDescription =
-    product.seo?.description || `${productDescription} Request a quote for ${product.name.toLowerCase()} printing with Prime Prints.`;
+    product.seo?.description || `${productDescription} Request a quote for ${product.name.toLowerCase()} t-shirt printing in the UK with same day delivery options.`;
   const seoKeywords = product.seo?.keywords?.length
     ? product.seo.keywords
-    : [product.name.toLowerCase(), `${product.name.toLowerCase()} printing`, 'printing london', 'same day printing'];
+    : [product.name.toLowerCase(), `${product.name.toLowerCase()} t-shirt printing`, 't-shirt printing uk', 'same day t-shirt printing'];
   const seoImage = product.seo?.image || productImage;
 
   return {

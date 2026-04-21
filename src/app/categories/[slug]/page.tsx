@@ -42,12 +42,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const categoryDescription = richContentToPlainText(category.description);
   const categorySummary = categoryShortDescription || categoryDescription;
   const canonicalPath = getCategoryPath(category.id, category.name);
-  const seoTitle = category.seo?.title || `${category.name} Printing in London`;
+  const seoTitle = category.seo?.title || `${category.name} T-Shirt Printing UK`;
   const seoDescription =
-    category.seo?.description || `${categorySummary} Explore products and request a quote for ${category.name.toLowerCase()} printing in London.`;
+    category.seo?.description || `${categorySummary} Explore options and request a quote for ${category.name.toLowerCase()} t-shirt printing in the UK with same day turnaround.`;
   const seoKeywords = category.seo?.keywords?.length
     ? category.seo.keywords
-    : [`${category.name.toLowerCase()} printing`, 'printing london', 'same day printing', category.name.toLowerCase()];
+    : [`${category.name.toLowerCase()} t-shirt printing`, 't-shirt printing uk', 'same day t-shirt printing', category.name.toLowerCase()];
   const seoImage = category.seo?.image || category.image.url;
 
   return {
@@ -99,7 +99,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const categoryJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: `${category.name} Printing in London`,
+    name: `${category.name} T-Shirt Printing UK`,
     description: categorySummaryText,
     url: `${siteUrl}${canonicalPath}`,
     about: {

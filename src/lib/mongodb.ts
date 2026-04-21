@@ -22,7 +22,7 @@ function getDbNameFromUri(uri: string): string {
   } catch {
     // Ignore parse errors and fallback to default.
   }
-  return process.env.MONGODB_DB_NAME || 'primeprints';
+  return process.env.MONGODB_DB_NAME || 't-shirts';
 }
 
 function getClientPromise(): Promise<MongoClient> {

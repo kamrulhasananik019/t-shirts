@@ -24,16 +24,16 @@ const SameDayPrinting = nextDynamic(() => import("@/components/Home/samedaydeliv
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: "Same Day Delivery in London & UK | Prime Prints",
+  title: "Same Day T-Shirt Printing UK | Prime Prints",
   description:
-    "Prime Prints offers same day delivery in London and across the UK with 24-hour delivery for business cards, flyers, posters, banners, and custom print products.",
+    "Prime Prints provides custom t-shirt printing in the UK with same day printing and fast delivery for urgent orders.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Prime Prints | Same Day Delivery in London & UK",
+    title: "Prime Prints | Same Day T-Shirt Printing UK",
     description:
-      "Fast, premium printing with same day delivery in London and 24-hour UK delivery options.",
+      "Custom UK t-shirt printing with same day print turnaround and reliable delivery.",
     url: "/",
     type: "website",
     siteName: "Prime Prints",
@@ -42,15 +42,15 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1600&q=80",
         width: 1600,
         height: 900,
-        alt: "Prime Prints same day printing and delivery",
+        alt: "Prime Prints same day t-shirt printing UK",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Prints | Same Day Delivery in London & UK",
+    title: "Prime Prints | Same Day T-Shirt Printing UK",
     description:
-      "Fast, premium printing with same day delivery in London and 24-hour UK delivery options.",
+      "UK custom t-shirt printing with same day service and fast delivery.",
     images: ["https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1600&q=80"],
   },
 };
@@ -83,7 +83,7 @@ export default async function Home() {
                 Choose a quick quote or fast delivery path in seconds.
               </h2>
               <p className="mt-4 max-w-2xl text-sm leading-relaxed text-cyan-50 md:text-base">
-                From business cards to large format prints, we help you choose the right product, finish, and turnaround for your deadline.
+                From one-off custom tees to bulk branded orders, we help you choose the right t-shirt style, print finish, and same-day turnaround.
               </p>
             </div>
 

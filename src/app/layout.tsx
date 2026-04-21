@@ -47,26 +47,26 @@ export const metadata: Metadata = {
     shortcut: ["/icon/favicon.ico"],
   },
   title: {
-    default: "Prime Prints | Same day printing service in UK",
+    default: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
     template: "%s | Prime Prints",
   },
   description:
-    "Prime Prints delivers premium same-day printing in London for business, events, and custom orders.",
+    "Prime Prints offers custom t-shirt printing in the UK with same day printing and fast delivery for urgent orders.",
   keywords: [
-    "same day printing",
-    "printing london",
-    "business cards",
-    "posters",
-    "banner printing",
-    "custom printing",
+    "t-shirt printing uk",
+    "t-shirt printing uk",
+    "same day t-shirt printing",
+    "same day printing uk",
+    "custom t-shirt printing",
+    "uk t-shirt delivery",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Prime Prints | Same day printing service in UK",
+    title: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
     description:
-      "Premium print quality, fast turnaround, and reliable delivery windows for every project.",
+      "Custom t-shirt printing in the UK with same day printing, fast turnaround, and reliable delivery.",
     url: "/",
     siteName: "Prime Prints",
     locale: "en_GB",
@@ -76,15 +76,15 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&q=80",
         width: 1600,
         height: 900,
-        alt: "Prime Prints same day printing hero image",
+        alt: "Prime Prints UK t-shirt printing same day delivery",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Prints | Same day printing service in UK",
+    title: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
     description:
-      "Premium print quality with fast turnaround for business and personal projects.",
+      "UK t-shirt printing with same day printing and fast delivery for custom orders.",
     images: ["https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&q=80"],
   },
   robots: {
@@ -99,8 +99,8 @@ const organizationJsonLd = {
   name: "Prime Prints",
   url: siteUrl,
   description:
-    "Same-day and premium printing in London for business cards, flyers, posters, banners, and custom orders.",
-  areaServed: { "@type": "City", name: "London" },
+    "Custom t-shirt printing in the UK with same day printing and fast delivery.",
+  areaServed: { "@type": "Country", name: "United Kingdom" },
   address: {
     "@type": "PostalAddress",
     addressLocality: "London",
