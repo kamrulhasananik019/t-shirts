@@ -679,7 +679,7 @@ export async function getProductSummaries(limit = 1000): Promise<Array<Pick<Prod
   }));
 }
 
-export async function getProductNavEntries(limit = 1000): Promise<Array<Pick<ProductRecord, 'id' | 'slug' | 'name' | 'shortDescription' | 'badges' | 'isActive' | 'isFeatured' | 'seo' | 'categoryIds'>>> {
+export async function getProductNavEntries(limit = 1000): Promise<Array<Pick<ProductRecord, 'id' | 'slug' | 'name' | 'shortDescription' | 'badges' | 'isActive' | 'isFeatured' | 'seo' | 'categoryIds' | 'images'>>> {
   await ensureIndexes();
   const db = await getMongoDb();
   const rows = await db
@@ -691,6 +691,7 @@ export async function getProductNavEntries(limit = 1000): Promise<Array<Pick<Pro
           _id: 1,
           slug: 1,
           name: 1,
+          images: 1,
           shortDescription: 1,
           badges: 1,
           categoryIds: 1,
@@ -708,6 +709,7 @@ export async function getProductNavEntries(limit = 1000): Promise<Array<Pick<Pro
     id: idToString(doc._id),
     slug: doc.slug,
     name: doc.name,
+    images: Array.isArray(doc.images) ? doc.images.map((img) => ({ ...img, url: img.url || '', alt: img.alt || '' })) : [],
     shortDescription: normalizeRichContent(doc.shortDescription),
     badges: Array.isArray(doc.badges) ? doc.badges : [],
     categoryIds: Array.isArray(doc.categoryIds) ? doc.categoryIds.map((item) => idToString(item)).filter(Boolean) : [],

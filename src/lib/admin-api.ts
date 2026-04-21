@@ -79,3 +79,20 @@ export function toStoredRichText(input: unknown): string {
 
   return JSON.stringify(toDoc(trimmed));
 }
+
+export function hasRichTextContent(input: unknown): boolean {
+  const parsed = parseTipTapDoc(input);
+  if (!parsed || !Array.isArray(parsed.content)) return false;
+
+  const hasTextNode = (node: unknown): boolean => {
+    if (!node || typeof node !== 'object') return false;
+    const current = node as { text?: unknown; content?: unknown };
+    if (typeof current.text === 'string' && current.text.trim().length > 0) {
+      return true;
+    }
+    if (!Array.isArray(current.content)) return false;
+    return current.content.some(hasTextNode);
+  };
+
+  return parsed.content.some(hasTextNode);
+}

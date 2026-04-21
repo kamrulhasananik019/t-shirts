@@ -4,6 +4,7 @@ import { CATALOG_TAGGED_DATA_REVALIDATE } from '@/lib/catalog-cache-policy';
 import {
   createAdminProduct,
   deleteAdminProduct,
+  getProductNavEntries as getProductNavEntriesRaw,
   getAdminProducts,
   getProductById as getProductByIdRaw,
   getProducts as getProductsRaw,
@@ -88,6 +89,21 @@ export const getRelatedProducts = unstable_cache(
     }
   },
   ['related-products'],
+  { revalidate: CATALOG_TAGGED_DATA_REVALIDATE, tags: ['catalog'] }
+);
+
+export const getProductNavEntries = unstable_cache(
+  async (limit = 200) => {
+    try {
+      return await getProductNavEntriesRaw(limit);
+    } catch (error) {
+      if (isCatalogUnavailableError(error)) {
+        return [];
+      }
+      throw error;
+    }
+  },
+  ['product-nav-entries'],
   { revalidate: CATALOG_TAGGED_DATA_REVALIDATE, tags: ['catalog'] }
 );
 

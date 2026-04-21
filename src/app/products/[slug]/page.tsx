@@ -11,7 +11,7 @@ import { richContentToPlainText } from '@/lib/rich-content';
 import RichContent from '@/components/shared/rich-content';
 import { getCategoryPath, getProductPath } from '@/lib/slug';
 import { getCategories, getCategoryById } from '@/services/category.service';
-import { getProductById, getProducts, getProductsByCategoryId } from '@/services/product.service';
+import { getProductById, getProductNavEntries, getProductsByCategoryId } from '@/services/product.service';
 
 /** On-demand static generation: first visit builds and caches; no build-time enumeration of all SKUs. Must be a literal for Next segment config (see `CATALOG_PAGE_REVALIDATE_SECONDS`). */
 export const revalidate = 604800;
@@ -81,16 +81,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
-  const [allCategories, categoryProducts, allProducts] = await Promise.all([
+  const [allCategories, categoryProducts, productNavEntries] = await Promise.all([
     getCategories(),
     getProductsByCategoryId(category.id, 4),
-    getProducts(240),
+    getProductNavEntries(140),
   ]);
   const related = categoryProducts.filter((item) => item.id !== product.id).slice(0, 3);
   const safeCategoryImage = getSafeImageSrc(category.image.url);
 
   const categoryNameById = new Map(allCategories.map((cat) => [cat.id, cat.name]));
-  const otherCategoryProducts = allProducts
+  const otherCategoryProducts = productNavEntries
     .filter((item) => item.id !== product.id)
     .map((item) => {
       const fallbackCategoryId = item.categoryIds?.find((id) => id !== category.id) ?? item.categoryIds?.[0];

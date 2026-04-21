@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 
-import { requireAdminSession, toStoredRichText } from '@/lib/admin-api';
+import { hasRichTextContent, requireAdminSession, toStoredRichText } from '@/lib/admin-api';
 import { createAdminProduct, getAdminProducts, resolveCategoryIds } from '@/services/product.service';
 export const runtime = 'nodejs';
 
@@ -49,7 +49,7 @@ export async function POST(request: Request) {
       image: String(body.seo?.image || '').trim(),
     };
 
-    if (!name || !description || !shortDescription) {
+    if (!name || !hasRichTextContent(body.description) || !hasRichTextContent(body.shortDescription)) {
       return NextResponse.json({ ok: false, error: 'name, description, and shortDescription are required.' }, { status: 400 });
     }
 

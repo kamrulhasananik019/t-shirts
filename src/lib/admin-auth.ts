@@ -4,7 +4,16 @@ const COOKIE_NAME = 'primeprints_admin_session';
 const SESSION_TTL_SECONDS = 60 * 60 * 12;
 
 function getSecret(): string {
-  return process.env.ADMIN_SESSION_SECRET || 'change-me-admin-session-secret';
+  const configured = process.env.ADMIN_SESSION_SECRET;
+  if (configured && configured.trim()) {
+    return configured;
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('Missing ADMIN_SESSION_SECRET in production environment.');
+  }
+
+  return 'change-me-admin-session-secret';
 }
 
 type AdminSessionData = {
