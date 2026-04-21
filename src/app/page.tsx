@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import nextDynamic from "next/dynamic";
 import Link from "next/link";
 import DiscountsAndPackages from "@/components/Home/discountsandpackages";
-import Banner from "@/components/Home/banner";
 import HomeDeferredFallback from "@/components/Home/home-deferred-fallback";
 import Faq from "@/components/Home/faq";
 import LocationMap from "@/components/Home/locationmap";
@@ -11,6 +10,7 @@ import Reviews from "@/components/Home/reviews";
 import InfiniteMarquee from "@/components/shared/infinite-marquee";
 import { getCategories } from "@/services/category.service";
 import { getProductCategoryTitleMap, getSameDayPrinting } from "@/services/product.service";
+import Banner from "@/components/Home/banner";
 
 const CategorySlider = nextDynamic(() => import("@/components/Home/categoryslider"), {
   loading: () => <HomeDeferredFallback minHeight="min-h-[420px]" />,
@@ -64,14 +64,14 @@ export default async function Home() {
 
   return (
     <main className="overflow-hidden bg-stone-50 font-sans">
-      <Banner />
+       {/* <PromoBar /> */}
+      <CategorySlider categories={categories} />
+      {/* <Banner /> */}
 
       <div className="">
         <InfiniteMarquee bottomItems={categoryTitles} />
       </div>
 
-      <PromoBar />
-      <CategorySlider categories={categories} />
       <SameDayPrinting products={sameDayPrinting} productCategoryTitles={sameDayCategoryTitles} />
       <DiscountsAndPackages />
       <section className="bg-stone-50 py-14 md:py-18">

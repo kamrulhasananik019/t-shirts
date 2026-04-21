@@ -36,22 +36,15 @@ export default function CategorySlider({ categories }: CategorySliderProps) {
   const canLoop = categories.length >= 7;
 
   return (
-    <section className="relative overflow-hidden bg-white py-16 lg:py-20">
+    <section className="relative overflow-hidden bg-white">
       <div className="absolute h-105 w-105 rounded-full bg-linear-to-br from-stone-200/70 to-transparent blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <span className="mb-2 block text-[11px] font-medium uppercase tracking-[0.18em] text-stone-500">
-              Our Products
+              Our Categories
             </span>
-
-            <h2 className="font-serif text-3xl font-bold leading-tight text-stone-900 sm:text-4xl lg:text-5xl">
-              Explore all categories
-            </h2>
-            <p className="mt-2 max-w-2xl text-sm text-stone-600 sm:text-base">
-              Choose a category to see full product details, pricing options, and fast print turnaround.
-            </p>
           </div>
 
           <div className="flex items-center gap-3">
@@ -72,14 +65,14 @@ export default function CategorySlider({ categories }: CategorySliderProps) {
         </div>
 
         <Swiper
-          modules={[Navigation, Autoplay, Pagination]}
+          modules={[Navigation, Autoplay]}
           navigation={{
             prevEl: '.category-prev',
             nextEl: '.category-next',
           }}
-          pagination={{
-            clickable: true,
-          }}
+          // pagination={{
+          //   clickable: true,
+          // }}
           autoplay={{
             delay: 3500,
             disableOnInteraction: false,
