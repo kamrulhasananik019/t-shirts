@@ -118,37 +118,37 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-[#F8F8F8]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd) }} />
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/90 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-stone-600 transition hover:text-stone-900">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-[#55692F] transition hover:text-[#2E4210]">
             <span>←</span> Back to Home
           </Link>
         </div>
       </div>
 
-      <div className="relative overflow-hidden border-b border-stone-200/70 bg-white">
-        <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+      <div className="border-b border-[#F0D542]/25 bg-white">
+        <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
+          <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <h1 className="mt-4 font-serif text-4xl font-bold leading-tight text-stone-900 sm:text-5xl lg:text-6xl">{category.name}</h1>
+              <h1 className="mt-2 font-serif text-3xl font-bold leading-tight text-[#2E4210] sm:text-4xl lg:text-5xl">{category.name}</h1>
               <RichContent
                 content={categorySummary}
                 wrapperClassName="mt-4 max-w-xl"
-                textClassName="text-base leading-relaxed text-stone-600"
+                textClassName="text-base leading-relaxed text-[#55692F]"
               />
-              <p className="mt-6 text-sm font-medium uppercase tracking-[0.16em] text-stone-500">{products.length} products available</p>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-[#55692F]">{products.length} products available</p>
               <div className="mt-6">
                 <Link
                   href={`/contact?category=${encodeURIComponent(category.name)}`}
-                  className="inline-flex items-center gap-2 rounded-xl bg-stone-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-stone-800"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#2E4210] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#55692F]"
                 >
                   Get Quote
                 </Link>
               </div>
             </div>
-            <div className="aspect-16/11 overflow-hidden rounded-3xl bg-stone-200 shadow-2xl shadow-stone-300/40">
+            <div className="aspect-16/11 overflow-hidden rounded-2xl border border-[#F8F8F8] bg-[#F8F8F8]">
               {safeCategoryImage ? (
                 <Image
                   src={safeCategoryImage}
@@ -173,12 +173,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <InfiniteMarquee bottomItems={categories.map((cat) => cat.name)} />
       </div>
 
-      <div className="border-b border-stone-200 bg-white">
+      <div className="border-b border-[#F8F8F8] bg-white">
         <div className="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
           <RichContent
             content={category.description}
             wrapperClassName=""
-            textClassName="text-base leading-relaxed text-stone-600"
+            textClassName="text-base leading-relaxed text-[#55692F]"
           />
         </div>
       </div>
@@ -186,13 +186,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="container mx-auto px-4 py-14 sm:px-6 lg:px-8">
         {products.length > 0 && (
           <div>
-            <h2 className="mb-2 font-serif text-3xl font-bold text-stone-900 sm:text-4xl">Products in {category.name}</h2>
-            <p className="mb-8 text-sm text-stone-500">Click any product to view full details and image gallery.</p>
+            <h2 className="mb-2 font-serif text-3xl font-bold text-[#2E4210] sm:text-4xl">Products in {category.name}</h2>
+            <p className="mb-8 text-sm text-[#55692F]">Click any product to view full details and image gallery.</p>
             <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {products.map((product) => (
                 <Link key={product.id} href={getProductPath(product.id, product.name, product.slug)} prefetch={false}>
-                  <div className="group cursor-pointer rounded-3xl border border-stone-200 bg-white p-3 transition hover:border-stone-300 hover:shadow-md">
-                    <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-3xl bg-stone-200">
+                  <div className="group cursor-pointer rounded-2xl border border-[#F8F8F8] bg-white p-3 transition hover:border-[#F0D542]/40 hover:shadow-sm">
+                    <div className="relative mb-4 aspect-4/5 overflow-hidden rounded-2xl bg-stone-200">
                       {getSafeImageSrc(getPrimaryImage(product) || category.image.url) ? (
                         <Image
                           src={getSafeImageSrc(getPrimaryImage(product) || category.image.url)!}
@@ -207,11 +207,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                           No image
                         </div>
                       )}
-                      <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/60 via-black/10 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
+                      <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/45 via-black/5 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
                         <span className="text-sm font-medium text-white">View Details</span>
                       </div>
                     </div>
-                    <h3 className="font-serif text-lg font-semibold text-stone-900">{product.name}</h3>
+                    <h3 className="font-serif text-lg font-semibold text-[#2E4210]">{product.name}</h3>
                   </div>
                 </Link>
               ))}
@@ -220,8 +220,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         )}
 
         {products.length === 0 && (
-          <div className="rounded-2xl border border-stone-200 bg-white p-10 text-center">
-            <p className="text-lg text-stone-600">No products available in this category yet. Check back soon!</p>
+          <div className="rounded-2xl border border-[#F8F8F8] bg-white p-10 text-center">
+            <p className="text-lg text-[#55692F]">No products available in this category yet. Check back soon!</p>
           </div>
         )}
       </div>

@@ -101,7 +101,7 @@ export default function CategorySlider({ categories }: CategorySliderProps) {
               <SwiperSlide key={category.id} className="h-auto">
                 <Link href={getCategoryPath(category.id, category.name)} prefetch={false}>
                   <div className="group cursor-pointer text-center">
-                    <div className="relative mx-auto mb-4 aspect-square w-44 overflow-hidden rounded-full border-4 border-white bg-stone-200 shadow-lg ring-1 ring-stone-200 sm:w-48 md:w-52">
+                    <div className="relative mx-auto mb-4 aspect-square w-20 overflow-hidden rounded-full border-4 border-white bg-stone-200 shadow-lg ring-1 ring-stone-200 sm:w-32 md:w-36">
                       {imageSrc ? (
                         <Image
                           src={imageSrc}

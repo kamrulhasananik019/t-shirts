@@ -141,16 +141,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-[#F8F8F8]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
 
-      <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/95 backdrop-blur">
+      <div className="sticky top-0 z-20 border-b border-[#F0D542]/25 bg-white/95 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <Link href={getCategoryPath(category.id, category.name)} prefetch={false} className="sans flex items-center gap-2 text-sm font-500 text-stone-600 transition-colors hover:text-stone-900">
+          <Link href={getCategoryPath(category.id, category.name)} prefetch={false} className="sans flex items-center gap-2 text-sm font-500 text-[#55692F] transition-colors hover:text-[#2E4210]">
             Back to {category.name}
           </Link>
-          <span className="rounded-lg bg-stone-100 px-3 py-1 text-xs font-600 uppercase tracking-wider text-stone-700">{category.name}</span>
+          <span className="rounded-lg bg-[#F8F8F8] px-3 py-1 text-xs font-600 uppercase tracking-wider text-[#2E4210]">{category.name}</span>
         </div>
       </div>
 
@@ -170,22 +170,22 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         </div>
 
         <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-14">
-          <div className="mt-10 rounded-2xl border border-stone-200 bg-white p-6 md:p-8">
-            <h2 className="serif mb-4 text-2xl font-black text-stone-900">More Details</h2>
-            <RichContent content={product.description} textClassName="sans text-base leading-relaxed text-stone-600" />
+          <div className="mt-10 rounded-2xl border border-[#F8F8F8] bg-white p-6 md:p-8">
+            <h2 className="serif mb-4 text-2xl font-black text-[#2E4210]">More Details</h2>
+            <RichContent content={product.description} textClassName="sans text-base leading-relaxed text-[#55692F]" />
           </div>
 
           {related.length > 0 && (
-            <div className="mt-16 border-t border-stone-200 pt-12">
+            <div className="mt-16 border-t border-[#F8F8F8] pt-12">
               <div className="mb-10 flex items-center gap-4">
-                <h2 className="serif text-3xl font-black text-stone-900">You Might Also Like</h2>
-                <div className="h-px flex-1 bg-linear-to-r from-stone-200 to-transparent" />
+                <h2 className="serif text-3xl font-black text-[#2E4210]">You Might Also Like</h2>
+                <div className="h-px flex-1 bg-linear-to-r from-[#F0D542]/45 to-transparent" />
               </div>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 {related.map((rel) => (
                   <Link key={rel.id} href={getProductPath(rel.id, rel.name, rel.slug)} prefetch={false} className="group block">
-                    <div className="group cursor-pointer">
-                      <div className="relative mb-4 aspect-square overflow-hidden rounded-3xl bg-stone-200">
+                    <div className="group cursor-pointer rounded-2xl border border-[#F8F8F8] bg-white p-3 transition hover:border-[#F0D542]/40 hover:shadow-sm">
+                      <div className="relative mb-4 aspect-square overflow-hidden rounded-2xl bg-stone-200">
                         {getSafeImageSrc(getPrimaryImage(rel) || category.image.url) ? (
                           <Image
                             src={getSafeImageSrc(getPrimaryImage(rel) || category.image.url)!}
@@ -199,7 +199,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                           <div className="flex h-full w-full items-center justify-center bg-stone-100 text-sm font-medium text-stone-500">No image</div>
                         )}
                       </div>
-                      <h3 className="serif text-xl font-bold leading-tight text-stone-900 transition-colors group-hover:text-stone-700">{rel.name}</h3>
+                      <h3 className="serif text-xl font-bold leading-tight text-[#2E4210] transition-colors group-hover:text-[#55692F]">{rel.name}</h3>
                     </div>
                   </Link>
                 ))}
@@ -208,19 +208,19 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           )}
 
           {otherCategoryProducts.length > 0 && (
-            <div className="mt-16 border-t border-stone-200 pt-12">
+            <div className="mt-16 border-t border-[#F8F8F8] pt-12">
               <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="sans mb-2 text-xs font-700 uppercase tracking-[0.2em] text-cyan-600">Discover More</p>
-                  <h2 className="serif text-3xl font-black text-slate-900">Explore Products From Other Categories</h2>
+                  <p className="sans mb-2 text-xs font-700 uppercase tracking-[0.2em] text-[#55692F]">Discover More</p>
+                  <h2 className="serif text-3xl font-black text-[#2E4210]">Explore Products From Other Categories</h2>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {otherCategoryProducts.map((item) => (
                   <Link key={item.id} href={getProductPath(item.id, item.name, item.slug)} prefetch={false} className="group block">
-                    <div className="group cursor-pointer">
-                      <div className="relative mb-4 aspect-square overflow-hidden rounded-3xl bg-stone-200">
+                    <div className="group cursor-pointer rounded-2xl border border-[#F8F8F8] bg-white p-3 transition hover:border-[#F0D542]/40 hover:shadow-sm">
+                      <div className="relative mb-4 aspect-square overflow-hidden rounded-2xl bg-stone-200">
                         {getSafeImageSrc(getPrimaryImage(item) || category.image.url) ? (
                           <Image
                             src={getSafeImageSrc(getPrimaryImage(item) || category.image.url)!}
@@ -233,11 +233,11 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                         ) : (
                           <div className="flex h-full w-full items-center justify-center bg-stone-100 text-sm font-medium text-stone-500">No image</div>
                         )}
-                        <span className="sans absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-stone-700 backdrop-blur">
+                        <span className="sans absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-[#2E4210] backdrop-blur">
                           {item.categoryName}
                         </span>
                       </div>
-                      <h3 className="serif text-xl font-bold leading-tight text-stone-900 transition-colors group-hover:text-stone-700">{item.name}</h3>
+                      <h3 className="serif text-xl font-bold leading-tight text-[#2E4210] transition-colors group-hover:text-[#55692F]">{item.name}</h3>
                     </div>
                   </Link>
                 ))}

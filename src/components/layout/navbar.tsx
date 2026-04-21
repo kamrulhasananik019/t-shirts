@@ -197,9 +197,9 @@ export default function Navbar({ categories }: NavbarProps) {
   };
 
   return (
-    <div className="sticky top-0 z-50">
-      <div className="hidden border-b border-[#F0D542]/40 bg-linear-to-r from-[#2E4210] via-[#55692F] to-[#1D0000] py-2 text-[#F8F8F8] lg:block">
-        <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 text-[11px] font-medium uppercase tracking-wider sm:px-6 lg:px-8">
+    <div className="sticky top-0 z-50 bg-[#F8F8F8]">
+      <div className="hidden border-b border-[#F0D542]/30 bg-[#2E4210] py-2 lg:block">
+        <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 text-[11px] font-medium uppercase tracking-wider text-[#F8F8F8] sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-6">
             <a href="mailto:order@primeprint.uk" className="inline-flex items-center gap-1.5 transition hover:text-[#F0D542]">
               <Mail className="h-3.5 w-3.5" /> order@primeprint.uk
@@ -208,12 +208,11 @@ export default function Navbar({ categories }: NavbarProps) {
               <Phone className="h-3.5 w-3.5" /> +44 (20) 555-0147
             </a>
           </div>
-          <div className="font-bold text-[#55692F]">● Same Day Printing Available</div>
+          <div className="font-bold text-[#F0D542]">● Same Day Printing Available</div>
         </div>
       </div>
 
-      <header className="relative overflow-hidden border-b border-[#F0D542]/40 bg-[#F8F8F8] shadow-sm">
-        <div className="absolute inset-x-0 top-0 h-1 bg-linear-to-r from-[#F0D542] via-[#55692F] to-[#1D0000]" />
+      <header className="relative border-b border-[#F0D542]/25 bg-[#F8F8F8] shadow-sm">
         <div className="container mx-auto flex items-center justify-between gap-3 px-4 py-4 sm:px-6 lg:gap-8 lg:px-8">
           <div className="flex items-center gap-4">
             <button className="p-2 text-stone-700 lg:hidden" onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu">
@@ -241,9 +240,9 @@ export default function Navbar({ categories }: NavbarProps) {
                   placeholder="Search 1,000+ products..."
                   onFocus={() => setSearchFocused(true)}
                   onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
-                  className="w-full rounded-xl border border-stone-200 bg-stone-50 py-3 pl-12 pr-6 text-sm transition-all focus:border-[#F0D542] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#F0D542]/15"
+                  className="w-full rounded-xl border border-[#F8F8F8] bg-white py-3 pl-12 pr-6 text-sm transition-all focus:border-[#F0D542] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#F0D542]/15"
                 />
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-stone-400" />
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#55692F]" />
               </div>
             </form>
 
@@ -261,10 +260,10 @@ export default function Navbar({ categories }: NavbarProps) {
                           setQuery('');
                           setSearchFocused(false);
                         }}
-                        className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm transition-colors hover:bg-[#F8F8F8]/35"
+                        className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm transition-colors hover:bg-[#F8F8F8]/40"
                       >
-                        <span className="font-semibold text-stone-700 group-hover:text-[#2E4210]">{result.label}</span>
-                        <span className="rounded bg-stone-100 px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-stone-400 group-hover:bg-[#F8F8F8]/50 group-hover:text-[#F0D542]">
+                        <span className="font-semibold text-[#2E4210] group-hover:text-[#2E4210]">{result.label}</span>
+                        <span className="rounded bg-[#F8F8F8] px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#55692F] group-hover:bg-[#F8F8F8] group-hover:text-[#F0D542]">
                           {result.type}
                         </span>
                       </button>
@@ -289,19 +288,19 @@ export default function Navbar({ categories }: NavbarProps) {
             >
               Home
             </Link>
-            <Link href="/contact" prefetch={false} className="rounded-full bg-[#2E4210] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#F0D542]">
+            <Link href="/contact" prefetch={false} className="rounded-full bg-[#2E4210] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#55692F]">
               Contact Us
             </Link>
           </div>
         </div>
 
-        <nav className="relative hidden border-t border-[#F0D542]/30 bg-linear-to-r from-[#F8F8F8] via-white to-[#F8F8F8] lg:block" onMouseLeave={closeMegaMenu}>
+        <nav className="relative hidden border-t border-[#F0D542]/25 lg:block" onMouseLeave={closeMegaMenu}>
           <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
             {showLeftArrow && (
               <div className="pointer-events-none absolute bottom-0 left-6 top-0 z-10 flex items-center pr-10 bg-linear-to-r from-white via-white to-transparent">
                 <button
                   onClick={() => scrollCategories('left')}
-                  className="pointer-events-auto rounded-full border border-stone-200 bg-white p-1 shadow-sm hover:bg-[#F8F8F8]/40 hover:text-[#F0D542]"
+                  className="pointer-events-auto rounded-full border border-[#F8F8F8] bg-white p-1 shadow-sm hover:bg-[#F8F8F8]/40 hover:text-[#F0D542]"
                   aria-label="Scroll categories left"
                 >
                   <ChevronLeft className="h-4 w-4" />
@@ -312,7 +311,7 @@ export default function Navbar({ categories }: NavbarProps) {
               <div className="pointer-events-none absolute bottom-0 right-6 top-0 z-10 flex items-center pl-10 bg-linear-to-l from-white via-white to-transparent">
                 <button
                   onClick={() => scrollCategories('right')}
-                  className="pointer-events-auto rounded-full border border-stone-200 bg-white p-1 shadow-sm hover:bg-[#F8F8F8]/40 hover:text-[#F0D542]"
+                  className="pointer-events-auto rounded-full border border-[#F8F8F8] bg-white p-1 shadow-sm hover:bg-[#F8F8F8]/40 hover:text-[#F0D542]"
                   aria-label="Scroll categories right"
                 >
                   <ChevronRight className="h-4 w-4" />
@@ -333,7 +332,7 @@ export default function Navbar({ categories }: NavbarProps) {
                     prefetch={false}
                     className={`inline-block whitespace-nowrap rounded-md px-4 py-3 text-[13px] font-bold transition-all ${
                       activeSlug === cat.id || pathname === getCategoryPath(cat.id, cat.name)
-                        ? 'bg-[#F0D542] text-[#2E4210] shadow-sm'
+                        ? 'bg-[#F0D542] text-[#2E4210]'
                         : 'text-[#55692F] hover:bg-[#F8F8F8] hover:text-[#2E4210]'
                     }`}
                   >
@@ -345,7 +344,7 @@ export default function Navbar({ categories }: NavbarProps) {
           </div>
 
           <div
-            className={`absolute left-0 right-0 top-full z-40 border-t border-[#F0D542]/30 bg-white shadow-2xl transition-all duration-300 origin-top ${
+            className={`absolute left-0 right-0 top-full z-40 border-t border-[#F0D542]/25 bg-white shadow-2xl transition-all duration-300 origin-top ${
               activeCategory ? 'visible scale-y-100 opacity-100' : 'invisible scale-y-95 opacity-0'
             }`}
             onMouseEnter={() => {
@@ -378,9 +377,9 @@ export default function Navbar({ categories }: NavbarProps) {
                 ))}
               </div>
 
-              <div className="col-span-3 border-l border-[#F8F8F8] pl-10">
+              <div className="col-span-3 border-l border-stone-100 pl-10">
                 <Link href={activeCategory ? getCategoryPath(activeCategory.id, activeCategory.name) : '/'} prefetch={false} className="group block">
-                  <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-[#F8F8F8] shadow-inner">
+                  <div className="relative aspect-16/10 overflow-hidden rounded-2xl bg-stone-100 shadow-inner">
                     {activeCategory ? (
                       getSafeImageSrc(activeCategory.imageUrl) ? (
                         <Image
@@ -391,7 +390,7 @@ export default function Navbar({ categories }: NavbarProps) {
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-[#F8F8F8] text-sm font-medium text-[#55692F]">
+                        <div className="flex h-full w-full items-center justify-center bg-stone-100 text-sm font-medium text-stone-500">
                           No image
                         </div>
                       )
@@ -399,8 +398,8 @@ export default function Navbar({ categories }: NavbarProps) {
                     <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
                   </div>
                   <div className="mt-6">
-                    <h4 className="text-lg font-black text-[#2E4210]">{activeCategory?.name}</h4>
-                    <p className="mt-2 text-sm leading-relaxed text-[#55692F]">{activeCategoryDescription}</p>
+                    <h4 className="text-lg font-black text-stone-900">{activeCategory?.name}</h4>
+                    <p className="mt-2 text-sm leading-relaxed text-stone-500">{activeCategoryDescription}</p>
                     <div className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F0D542] py-3 text-sm font-bold text-[#2E4210] transition group-hover:bg-[#55692F] group-hover:text-white">
                       Explore All <ArrowRight className="h-4 w-4" />
                     </div>
@@ -424,7 +423,7 @@ export default function Navbar({ categories }: NavbarProps) {
           }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex items-center justify-between border-b border-[#F0D542]/30 bg-linear-to-r from-[#2E4210] to-[#55692F] p-5 text-white">
+          <div className="flex items-center justify-between border-b border-[#F0D542]/30 p-5">
              <Link href="/" prefetch={false} className="flex items-center">
               <Image
                 src="/logo.png"
@@ -435,8 +434,8 @@ export default function Navbar({ categories }: NavbarProps) {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <button onClick={() => setIsMobileMenuOpen(false)} className="rounded-full p-2 hover:bg-white/10" aria-label="Close menu">
-              <X className="h-6 w-6 text-white/80" />
+            <button onClick={() => setIsMobileMenuOpen(false)} className="rounded-full p-2 hover:bg-[#F8F8F8]" aria-label="Close menu">
+              <X className="h-6 w-6 text-[#55692F]" />
             </button>
           </div>
 
