@@ -22,6 +22,7 @@ export default async function DiscountsAndPackages() {
       name: product.name,
       label: 'Deals & Discounts',
       description,
+      imageUrl: product.images[0]?.url || dealsCategory?.image.url || null,
     };
   });
 

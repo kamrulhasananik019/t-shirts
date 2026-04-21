@@ -7,6 +7,7 @@ import Faq from "@/components/Home/faq";
 import LocationMap from "@/components/Home/locationmap";
 import PromoBar from "@/components/Home/promobar";
 import Reviews from "@/components/Home/reviews";
+import PartnershipsSection from "@/components/Home/partnerships-section";
 import InfiniteMarquee from "@/components/shared/infinite-marquee";
 import { getCategories } from "@/services/category.service";
 import { getProductCategoryTitleMap, getSameDayPrinting } from "@/services/product.service";
@@ -73,10 +74,8 @@ export default async function Home() {
 
       <SameDayPrinting products={sameDayPrinting} productCategoryTitles={sameDayCategoryTitles} />
       <DiscountsAndPackages />
-     
-      <Faq />
-      <Reviews />
-       <section className="bg-stone-50 py-14 md:py-18">
+      <PartnershipsSection />
+        <section className="bg-stone-50 py-14 md:py-18">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
             <div className="bg-linear-to-r from-[#0a72b2] via-[#F0D542] to-[#0a72b2] p-8 text-white md:p-10">
@@ -127,6 +126,10 @@ export default async function Home() {
           </div>
         </div>
       </section>
+  
+      <Reviews />
+    
+          <Faq />
       <LocationMap />
     </main>
   );

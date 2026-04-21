@@ -45,8 +45,10 @@ body {
 }
 
 .swiper-pagination-bullet {
-  width: 20px;
-  height: 20px;
+  padding-top: 10px;
+  margin-top: 10px;
+  width: 5px;
+  height: 5px;
   text-align: center;
   line-height: 20px;
   font-size: 12px;
