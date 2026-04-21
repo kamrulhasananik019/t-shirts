@@ -4,8 +4,12 @@ import { toSlug } from '@/lib/slug';
 import { getCategories } from '@/services/category.service';
 import { getProductsByCategoryId } from '@/services/product.service';
 
-export default async function DiscountsAndPackages() {
-  const categories = await getCategories();
+type DiscountsAndPackagesProps = {
+  categoriesData?: Awaited<ReturnType<typeof getCategories>>;
+};
+
+export default async function DiscountsAndPackages({ categoriesData }: DiscountsAndPackagesProps = {}) {
+  const categories = categoriesData ?? (await getCategories());
   const dealsCategory = categories.find((category) => {
     const normalizedName = category.name.trim().toLowerCase();
     const normalizedSlug = category.slug.trim().toLowerCase();

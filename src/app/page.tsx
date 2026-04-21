@@ -73,7 +73,7 @@ export default async function Home() {
       </div>
 
       <SameDayPrinting products={sameDayPrinting} productCategoryTitles={sameDayCategoryTitles} />
-      <DiscountsAndPackages />
+      <DiscountsAndPackages categoriesData={categories} />
       <PartnershipsSection />
         <section className="bg-stone-50 py-14 md:py-18">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
