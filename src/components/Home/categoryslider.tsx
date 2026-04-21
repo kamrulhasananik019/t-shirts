@@ -85,13 +85,13 @@ export default function CategorySlider({ categories }: CategorySliderProps) {
             disableOnInteraction: false,
           }}
           loop={canLoop}
-          spaceBetween={18}
+          spaceBetween={8}
           breakpoints={{
-            0: { slidesPerView: 1.3 },
-            480: { slidesPerView: 2.2 },
-            768: { slidesPerView: 3.2 },
-            1024: { slidesPerView: 4.1 },
-            1280: { slidesPerView: 5.1 },
+            0: { slidesPerView: 2.1 },
+            480: { slidesPerView: 3.2 },
+            768: { slidesPerView: 4.6 },
+            1024: { slidesPerView: 5.8 },
+            1280: { slidesPerView: 7.1 },
           }}
           className="overflow-visible! pb-10"
         >
