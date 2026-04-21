@@ -209,14 +209,14 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F8F8] text-[#2E4210] font-sans">
+    <div className="min-h-screen bg-[#F8F8F8] text-[#0a72b2] font-sans">
       <header className="relative overflow-hidden border-b border-[#F8F8F8] bg-white">
         <div className="absolute -left-24 top-0 h-72 w-72 rounded-full bg-[#F0D542]/40 blur-3xl" />
-        <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#55692F]/25 blur-3xl" />
+        <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-[#0a72b2]/25 blur-3xl" />
         <div className="relative container mx-auto px-4 py-16 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="mb-8 inline-flex items-center gap-2 text-sm text-[#55692F] transition hover:text-[#2E4210]"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-[#0a72b2] transition hover:text-[#0a72b2]"
           >
             <ArrowRight className="size-4 rotate-180" />
             Back to home
@@ -224,13 +224,13 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
 
           <div className="grid gap-10 lg:grid-cols-[1.4fr_0.8fr] lg:items-end">
             <div className="max-w-3xl">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#55692F]">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#0a72b2]">
                 Client Support Desk
               </p>
-              <h1 className="text-4xl font-bold tracking-tight text-[#2E4210] sm:text-5xl">
+              <h1 className="text-4xl font-bold tracking-tight text-[#0a72b2] sm:text-5xl">
                 Contact Prime Prints
               </h1>
-              <p className="mt-4 text-lg leading-8 text-[#55692F]">
+              <p className="mt-4 text-lg leading-8 text-[#0a72b2]">
                 Speak to a print team that understands deadlines, details, and delivery.
                 Share your category, product, quantities, and timeline and we&apos;ll send
                 a clear production plan with lead times.
@@ -238,10 +238,10 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
             </div>
 
             <div className="rounded-2xl border border-[#F8F8F8] bg-[#F8F8F8]/70 p-6">
-              <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#55692F]">
+              <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-[#0a72b2]">
                 Why clients choose us
               </h2>
-              <ul className="mt-4 space-y-3 text-sm text-[#2E4210]">
+              <ul className="mt-4 space-y-3 text-sm text-[#0a72b2]">
                 <li className="flex items-start gap-2">
                   <CheckCircle2 className="mt-0.5 h-4 w-4 text-[#F0D542]" />
                   Fast quote turnarounds with practical print recommendations
@@ -265,8 +265,8 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
 
           <div className="lg:col-span-2">
             <div className="rounded-2xl border border-[#F8F8F8] bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="mb-2 text-2xl font-bold text-[#2E4210]">Send us a request</h2>
-              <p className="mb-6 text-sm text-[#55692F]">
+              <h2 className="mb-2 text-2xl font-bold text-[#0a72b2]">Send us a request</h2>
+              <p className="mb-6 text-sm text-[#0a72b2]">
                 Fill in your details and select a category and product so our team can prepare the right quote.
               </p>
               
@@ -277,7 +277,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                       <Send className="h-5 w-5 text-[#F0D542]" aria-hidden="true" />
                     </div>
                     <div className="ml-3">
-                      <p className="text-sm font-medium text-[#2E4210]">
+                      <p className="text-sm font-medium text-[#0a72b2]">
                         {submitMessage}
                       </p>
                     </div>
@@ -300,7 +300,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 }}
               >
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-[#2E4210]">Full name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-[#0a72b2]">Full name</label>
                   <div className="mt-1">
                     <input
                       type="text"
@@ -314,7 +314,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-[#2E4210]">Company</label>
+                  <label htmlFor="company" className="block text-sm font-medium text-[#0a72b2]">Company</label>
                   <div className="mt-1">
                     <input
                       type="text"
@@ -327,7 +327,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-[#2E4210]">Email address</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-[#0a72b2]">Email address</label>
                   <div className="mt-1">
                     <input
                       type="email"
@@ -341,7 +341,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-[#2E4210]">Phone number</label>
+                  <label htmlFor="phone" className="block text-sm font-medium text-[#0a72b2]">Phone number</label>
                   <div className="mt-1">
                     <input
                       type="tel"
@@ -354,7 +354,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div>
-                  <label htmlFor="category" className="block text-sm font-medium text-[#2E4210]">Category</label>
+                  <label htmlFor="category" className="block text-sm font-medium text-[#0a72b2]">Category</label>
                   <div className="mt-1">
                     <select
                       id="category"
@@ -389,7 +389,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
 
                 {isCustomCategory && (
                   <div>
-                    <label htmlFor="customCategory" className="block text-sm font-medium text-[#2E4210]">
+                    <label htmlFor="customCategory" className="block text-sm font-medium text-[#0a72b2]">
                       Custom category
                     </label>
                     <div className="mt-1">
@@ -408,7 +408,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 )}
 
                 <div>
-                  <label htmlFor="product" className="block text-sm font-medium text-[#2E4210]">Category product</label>
+                  <label htmlFor="product" className="block text-sm font-medium text-[#0a72b2]">Category product</label>
                   <div className="mt-1">
                     <select
                       id="product"
@@ -429,7 +429,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                         }
                       }}
                       disabled={!canSelectProduct}
-                      className="block w-full rounded-xl border border-[#F8F8F8] bg-white px-4 py-3 text-sm shadow-sm focus:border-[#F0D542] focus:outline-none focus:ring-2 focus:ring-[#F0D542]/10 disabled:cursor-not-allowed disabled:bg-[#F8F8F8] disabled:text-[#55692F]"
+                      className="block w-full rounded-xl border border-[#F8F8F8] bg-white px-4 py-3 text-sm shadow-sm focus:border-[#F0D542] focus:outline-none focus:ring-2 focus:ring-[#F0D542]/10 disabled:cursor-not-allowed disabled:bg-[#F8F8F8] disabled:text-[#0a72b2]"
                     >
                       <option value="" disabled>
                         {selectedCategorySlug ? "Select a product" : "Select category first"}
@@ -448,7 +448,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
 
                 {isCustomProduct && (
                   <div>
-                    <label htmlFor="customProduct" className="block text-sm font-medium text-[#2E4210]">
+                    <label htmlFor="customProduct" className="block text-sm font-medium text-[#0a72b2]">
                       Custom product
                     </label>
                     <div className="mt-1">
@@ -467,7 +467,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 )}
 
                 <div>
-                  <label htmlFor="deadline" className="block text-sm font-medium text-[#2E4210]">Needed by</label>
+                  <label htmlFor="deadline" className="block text-sm font-medium text-[#0a72b2]">Needed by</label>
                   <div className="mt-1">
                     <input
                       type="date"
@@ -479,7 +479,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div className="sm:col-span-2">
-                  <label htmlFor="details" className="block text-sm font-medium text-[#2E4210]">Project details</label>
+                  <label htmlFor="details" className="block text-sm font-medium text-[#0a72b2]">Project details</label>
                   <div className="mt-1">
                     <textarea
                       id="details"
@@ -493,13 +493,13 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 </div>
 
                 <div className="sm:col-span-2 flex flex-col gap-4 border-t border-[#F8F8F8] pt-5 sm:flex-row sm:items-center sm:justify-between">
-                  <p className="text-xs text-[#55692F]">
+                  <p className="text-xs text-[#0a72b2]">
                     By sending this form, you agree to be contacted regarding your quote.
                   </p>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#2E4210] bg-[#2E4210] px-6 py-3 text-base font-medium text-white shadow-sm transition hover:bg-[#F0D542] focus:outline-none focus:ring-2 focus:ring-[#F0D542]/20 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-[#55692F]"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#0a72b2] bg-[#0a72b2] px-6 py-3 text-base font-medium text-white shadow-sm transition hover:bg-[#F0D542] focus:outline-none focus:ring-2 focus:ring-[#F0D542]/20 focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-[#0a72b2]"
                   >
                     <Send className="h-4 w-4" />
                     {isSubmitting ? "Sending..." : "Send Request"}
@@ -511,7 +511,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
 
           <div className="mt-12 space-y-8 lg:col-span-1 lg:mt-0">
 
-            <div className="rounded-2xl border border-[#F8F8F8] bg-[#2E4210] p-6 text-white sm:p-8">
+            <div className="rounded-2xl border border-[#F8F8F8] bg-[#0a72b2] p-6 text-white sm:p-8">
               <h3 className="text-lg font-semibold">Need a fast quote?</h3>
               <p className="mt-2 text-sm text-[#F8F8F8]/80">
                 Select your category and product in the form for quicker pricing and production estimates.

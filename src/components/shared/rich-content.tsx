@@ -48,7 +48,7 @@ export default function RichContent({
 
         if (level === 3) {
           return (
-            <h3 key={key} className="sans text-xl font-700 text-[#2E4210]">
+            <h3 key={key} className="sans text-xl font-700 text-[#0a72b2]">
               {content}
             </h3>
           );
@@ -56,14 +56,14 @@ export default function RichContent({
 
         if (level >= 4) {
           return (
-            <h4 key={key} className="sans text-lg font-700 text-[#2E4210]">
+            <h4 key={key} className="sans text-lg font-700 text-[#0a72b2]">
               {content}
             </h4>
           );
         }
 
         return (
-          <h2 key={key} className="sans text-2xl font-700 text-[#2E4210]">
+          <h2 key={key} className="sans text-2xl font-700 text-[#0a72b2]">
             {content}
           </h2>
         );
@@ -107,7 +107,7 @@ export default function RichContent({
 
       if (node.type === 'blockquote') {
         return (
-          <blockquote key={key} className="mb-4 border-l-4 border-[#F0D542] pl-4 text-[#55692F] last:mb-0">
+          <blockquote key={key} className="mb-4 border-l-4 border-[#F0D542] pl-4 text-[#0a72b2] last:mb-0">
             {renderTipTapNodes(node.content ?? [], `${key}-content`)}
           </blockquote>
         );
@@ -116,7 +116,7 @@ export default function RichContent({
       if (node.type === 'codeBlock') {
         const codeText = getNodeText(node.content ?? []);
         return (
-          <pre key={key} className="mb-4 overflow-x-auto rounded-lg bg-[#2E4210] p-4 text-sm text-[#F8F8F8] last:mb-0">
+          <pre key={key} className="mb-4 overflow-x-auto rounded-lg bg-[#0a72b2] p-4 text-sm text-[#F8F8F8] last:mb-0">
             <code>{codeText}</code>
           </pre>
         );

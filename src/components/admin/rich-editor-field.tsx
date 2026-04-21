@@ -49,12 +49,12 @@ export default function RichEditorField({ label, value, onChange, minRows = 8 }:
   return (
     <div className="rounded-xl border border-[#F8F8F8] bg-[#F8F8F8]/40 p-3">
       <div className="mb-2 flex items-center justify-between">
-        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#55692F]">{label}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#0a72b2]">{label}</p>
         <div className="flex items-center gap-2">
           <button
             type="button"
             onClick={() => setShowJson((current) => !current)}
-            className="rounded-md border border-[#F8F8F8] bg-white px-2 py-1 text-xs text-[#2E4210]"
+            className="rounded-md border border-[#F8F8F8] bg-white px-2 py-1 text-xs text-[#0a72b2]"
           >
             {showJson ? 'Hide JSON' : 'View JSON'}
           </button>
@@ -63,7 +63,7 @@ export default function RichEditorField({ label, value, onChange, minRows = 8 }:
       <div className="space-y-2">
         <TipTapEditor value={value} onChange={onChange} minHeight={editorMinHeight} />
         <div className="flex justify-end">
-          <button type="button" onClick={() => onChange(tiptapTemplate)} className="rounded-md border border-[#F8F8F8] bg-white px-2 py-1 text-xs text-[#2E4210]">
+          <button type="button" onClick={() => onChange(tiptapTemplate)} className="rounded-md border border-[#F8F8F8] bg-white px-2 py-1 text-xs text-[#0a72b2]">
             Reset Template
           </button>
         </div>

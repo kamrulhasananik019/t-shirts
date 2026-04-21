@@ -461,13 +461,13 @@ export default function AdminDashboard({ adminEmail }: Props) {
       title: 'Total Products',
       value: products.length,
       hint: 'Items published',
-      color: 'from-[#55692F] to-[#55692F]',
+      color: 'from-[#0a72b2] to-[#0a72b2]',
     },
     {
       title: 'Total FAQs',
       value: faqs.length,
       hint: 'Help content',
-      color: 'from-[#55692F] to-[#55692F]',
+      color: 'from-[#0a72b2] to-[#0a72b2]',
     },
     {
       title: 'Active Panel',
@@ -482,7 +482,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
                 ? 'Reviews'
                 : 'FAQs',
       hint: 'Current workspace',
-      color: 'from-[#55692F] to-[#2E4210]',
+      color: 'from-[#0a72b2] to-[#0a72b2]',
     },
   ];
 
@@ -491,8 +491,8 @@ export default function AdminDashboard({ adminEmail }: Props) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(85,105,47,0.2),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(248,248,248,0.35),transparent_40%)]" />
 
       {(isLoading || saving) && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#2E4210]/20 backdrop-blur-[2px]">
-          <div className="flex items-center gap-2 rounded-xl border border-[#2E4210]/20 bg-white px-5 py-3 text-sm font-semibold text-[#2E4210] shadow-xl">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a72b2]/20 backdrop-blur-[2px]">
+          <div className="flex items-center gap-2 rounded-xl border border-[#0a72b2]/20 bg-white px-5 py-3 text-sm font-semibold text-[#0a72b2] shadow-xl">
             <Loader2 className="h-4 w-4 animate-spin" />
             {saving ? 'Saving changes...' : 'Loading admin data...'}
           </div>
@@ -500,19 +500,19 @@ export default function AdminDashboard({ adminEmail }: Props) {
       )}
 
       <aside
-        className={`fixed bottom-0 left-0 top-44 z-40 flex w-72 flex-col border-r border-[#2E4210]/10 bg-white/95 p-4 shadow-xl backdrop-blur transition-transform duration-300  lg:translate-x-0 ${
+        className={`fixed bottom-0 left-0 top-44 z-40 flex w-72 flex-col border-r border-[#0a72b2]/10 bg-white/95 p-4 shadow-xl backdrop-blur transition-transform duration-300  lg:translate-x-0 ${
           drawerOpen ? 'translate-x-0' : '-translate-x-full'
         } ${drawerCollapsed ? 'lg:w-24' : ''}`}
       >
         <div className="mb-6 flex items-center justify-between">
           <div className={`overflow-hidden transition-all ${drawerCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'}`}>
-            <p className="text-xs uppercase tracking-[0.2em] text-[#55692F]">Prime Prints</p>
-            <h1 className="text-xl font-bold text-[#2E4210]">Admin Panel</h1>
+            <p className="text-xs uppercase tracking-[0.2em] text-[#0a72b2]">Prime Prints</p>
+            <h1 className="text-xl font-bold text-[#0a72b2]">Admin Panel</h1>
           </div>
           <button
             type="button"
             onClick={() => setDrawerCollapsed((value) => !value)}
-            className="hidden rounded-lg border border-[#f8f8f8] p-2 text-[#2E4210] lg:inline-flex"
+            className="hidden rounded-lg border border-[#f8f8f8] p-2 text-[#0a72b2] lg:inline-flex"
             aria-label="Toggle drawer width"
           >
             <Menu className="h-4 w-4" />
@@ -520,7 +520,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
           <button
             type="button"
             onClick={() => setDrawerOpen(false)}
-            className="rounded-lg border border-[#f8f8f8] p-2 text-[#2E4210] lg:hidden"
+            className="rounded-lg border border-[#f8f8f8] p-2 text-[#0a72b2] lg:hidden"
             aria-label="Close drawer"
           >
             <X className="h-4 w-4" />
@@ -541,7 +541,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
                 }}
                 className={`flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-medium transition ${
                   active
-                    ? 'bg-[#2E4210] text-white shadow-lg shadow-[#2E4210]/20'
+                    ? 'bg-[#0a72b2] text-white shadow-lg shadow-[#0a72b2]/20'
                     : 'text-[#f0d542] hover:bg-[#f8f8f8]'
                 } ${drawerCollapsed ? 'lg:justify-center' : ''}`}
               >
@@ -565,7 +565,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
           </button>
         </div>
 
-        <div className="mt-auto rounded-2xl bg-linear-to-br from-[#2E4210] to-[#55692F] p-4 text-white">
+        <div className="mt-auto rounded-2xl bg-linear-to-br from-[#0a72b2] to-[#0a72b2] p-4 text-white">
           <p className={`text-xs ${drawerCollapsed ? 'lg:hidden' : ''}`}>Signed in as</p>
           <p className={`mt-1 truncate text-sm font-semibold ${drawerCollapsed ? 'lg:hidden' : ''}`}>{adminEmail}</p>
           <button
@@ -584,27 +584,27 @@ export default function AdminDashboard({ adminEmail }: Props) {
       {drawerOpen ? (
         <button
           type="button"
-          className="fixed inset-x-0 bottom-0 top-44 z-30 bg-[#2E4210]/20 md:top-48 lg:hidden"
+          className="fixed inset-x-0 bottom-0 top-44 z-30 bg-[#0a72b2]/20 md:top-48 lg:hidden"
           onClick={() => setDrawerOpen(false)}
           aria-label="Close menu overlay"
         />
       ) : null}
 
       <section className={`relative z-10 p-4 transition-all lg:p-8 ${drawerCollapsed ? 'lg:ml-24' : 'lg:ml-72'}`}>
-        <header className="mb-6 rounded-3xl border border-[#2E4210]/10 bg-white/90 px-4 py-4 shadow-sm backdrop-blur sm:px-6">
+        <header className="mb-6 rounded-3xl border border-[#0a72b2]/10 bg-white/90 px-4 py-4 shadow-sm backdrop-blur sm:px-6">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => setDrawerOpen(true)}
-                className="rounded-lg border border-[#f8f8f8] p-2 text-[#2E4210] lg:hidden"
+                className="rounded-lg border border-[#f8f8f8] p-2 text-[#0a72b2] lg:hidden"
                 aria-label="Open drawer"
               >
                 <Menu className="h-4 w-4" />
               </button>
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-[#55692F]">Admin Workspace</p>
-                <h2 className="text-2xl font-bold text-[#2E4210]">Admin Dashboard</h2>
+                <p className="text-xs uppercase tracking-[0.2em] text-[#0a72b2]">Admin Workspace</p>
+                <h2 className="text-2xl font-bold text-[#0a72b2]">Admin Dashboard</h2>
               </div>
             </div>
             <div className="flex items-center gap-2 rounded-xl border border-[#f8f8f8] bg-[#f8f8f8] px-3 py-2 text-sm text-[#f0d542]">
@@ -613,7 +613,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
                 value={searchTerm}
                 onChange={(event) => setSearchTerm(event.target.value)}
                 placeholder="Search by name or id"
-                className="w-52 bg-transparent outline-none placeholder:text-[#55692F]/70"
+                className="w-52 bg-transparent outline-none placeholder:text-[#0a72b2]/70"
               />
             </div>
           </div>
@@ -627,7 +627,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
           {kpiCards.map((card) => (
             <article
               key={card.title}
-              className={`rounded-2xl bg-linear-to-br ${card.color} p-4 text-white shadow-lg shadow-[#2E4210]/10`}
+              className={`rounded-2xl bg-linear-to-br ${card.color} p-4 text-white shadow-lg shadow-[#0a72b2]/10`}
             >
               <p className="text-sm text-white/80">{card.title}</p>
               <p className="mt-1 text-2xl font-black">{card.value}</p>
@@ -638,9 +638,9 @@ export default function AdminDashboard({ adminEmail }: Props) {
 
         {activeSection === 'overview' ? (
           <div className="mt-6 grid gap-5 xl:grid-cols-2">
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">Recent Categories</h3>
+                <h3 className="text-lg font-bold text-[#0a72b2]">Recent Categories</h3>
                 <button
                   type="button"
                   onClick={() => setActiveSection('categories')}
@@ -652,17 +652,17 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="space-y-2">
                 {filteredCategories.slice(0, 5).map((item) => (
                   <div key={item.id} className="rounded-xl border border-[#f8f8f8]/60 bg-[#f8f8f8]/50 px-3 py-2">
-                    <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                    <p className="text-xs text-[#55692F]">{item.id}</p>
+                    <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                    <p className="text-xs text-[#0a72b2]">{item.id}</p>
                   </div>
                 ))}
-                {!filteredCategories.length ? <p className="text-sm text-[#55692F]">No categories yet.</p> : null}
+                {!filteredCategories.length ? <p className="text-sm text-[#0a72b2]">No categories yet.</p> : null}
               </div>
             </section>
 
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">Recent Products</h3>
+                <h3 className="text-lg font-bold text-[#0a72b2]">Recent Products</h3>
                 <button
                   type="button"
                   onClick={() => setActiveSection('products')}
@@ -674,17 +674,17 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="space-y-2">
                 {filteredProducts.slice(0, 5).map((item) => (
                   <div key={item.id} className="rounded-xl border border-[#f8f8f8]/60 bg-[#f8f8f8]/50 px-3 py-2">
-                    <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                    <p className="text-xs text-[#55692F]">{item.id}</p>
+                    <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                    <p className="text-xs text-[#0a72b2]">{item.id}</p>
                   </div>
                 ))}
-                {!filteredProducts.length ? <p className="text-sm text-[#55692F]">No products yet.</p> : null}
+                {!filteredProducts.length ? <p className="text-sm text-[#0a72b2]">No products yet.</p> : null}
               </div>
             </section>
 
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm xl:col-span-2">
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm xl:col-span-2">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">Recent Reviews</h3>
+                <h3 className="text-lg font-bold text-[#0a72b2]">Recent Reviews</h3>
                 <button
                   type="button"
                   onClick={() => setActiveSection('reviews')}
@@ -696,18 +696,18 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="space-y-2">
                 {filteredReviews.slice(0, 5).map((item) => (
                   <div key={item.id} className="rounded-xl border border-[#f8f8f8]/60 bg-[#f8f8f8]/50 px-3 py-2">
-                    <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                    <p className="text-xs text-[#55692F]">{item.email}</p>
+                    <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                    <p className="text-xs text-[#0a72b2]">{item.email}</p>
                     <p className="text-xs text-[#f0d542]">Status: {item.status}</p>
                   </div>
                 ))}
-                {!filteredReviews.length ? <p className="text-sm text-[#55692F]">No reviews yet.</p> : null}
+                {!filteredReviews.length ? <p className="text-sm text-[#0a72b2]">No reviews yet.</p> : null}
               </div>
             </section>
 
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm xl:col-span-2">
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm xl:col-span-2">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">Recent FAQs</h3>
+                <h3 className="text-lg font-bold text-[#0a72b2]">Recent FAQs</h3>
                 <button
                   type="button"
                   onClick={() => setActiveSection('faqs')}
@@ -719,12 +719,12 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="space-y-2">
                 {filteredFaqs.slice(0, 5).map((item) => (
                   <div key={item.id} className="rounded-xl border border-[#f8f8f8]/60 bg-[#f8f8f8]/50 px-3 py-2">
-                    <p className="font-semibold text-[#2E4210]">{item.question}</p>
-                    <p className="text-xs text-[#55692F]">Order: {item.sortOrder}</p>
+                    <p className="font-semibold text-[#0a72b2]">{item.question}</p>
+                    <p className="text-xs text-[#0a72b2]">Order: {item.sortOrder}</p>
                     <p className="text-xs text-[#f0d542]">Status: {item.isActive ? 'Active' : 'Hidden'}</p>
                   </div>
                 ))}
-                {!filteredFaqs.length ? <p className="text-sm text-[#55692F]">No FAQs yet.</p> : null}
+                {!filteredFaqs.length ? <p className="text-sm text-[#0a72b2]">No FAQs yet.</p> : null}
               </div>
             </section>
           </div>
@@ -732,9 +732,9 @@ export default function AdminDashboard({ adminEmail }: Props) {
 
         {activeSection === 'categories' ? (
           <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-            <form onSubmit={createCategory} className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+            <form onSubmit={createCategory} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">
+                <h3 className="text-lg font-bold text-[#0a72b2]">
                   {editingCategoryId ? 'Update Category' : 'Create Category'}
                 </h3>
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#f8f8f8] px-2 py-1 text-xs text-[#f0d542]">
@@ -817,7 +817,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
                 >
                   {editingCategoryId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                   {editingCategoryId ? 'Update Category' : 'Create Category'}
@@ -834,20 +834,20 @@ export default function AdminDashboard({ adminEmail }: Props) {
               </div>
             </form>
 
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-[#2E4210]">Category List ({filteredCategories.length})</h3>
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold text-[#0a72b2]">Category List ({filteredCategories.length})</h3>
               <div className="space-y-3">
                 {filteredCategories.map((item) => (
                   <article key={item.id} className="rounded-2xl border border-[#f8f8f8]/70 bg-[#f8f8f8]/50 p-3">
                     <div className="flex items-start justify-between gap-3">
                       <div>
-                        <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                        <p className="text-xs text-[#55692F]">{item.id}</p>
+                        <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                        <p className="text-xs text-[#0a72b2]">{item.id}</p>
                         <p className="mt-1 text-xs text-[#f0d542]">
                           Parent: {item.parent_id ? categoryNameById.get(item.parent_id) || item.parent_id : 'None'}
                         </p>
-                        <p className="mt-1 text-xs text-[#55692F]">{getTextFromTiptapJson(item.short_description || '') || 'No short description.'}</p>
-                        <p className="mt-1 text-xs text-[#55692F]">{getTextFromTiptapJson(item.description) || 'No description.'}</p>
+                        <p className="mt-1 text-xs text-[#0a72b2]">{getTextFromTiptapJson(item.short_description || '') || 'No short description.'}</p>
+                        <p className="mt-1 text-xs text-[#0a72b2]">{getTextFromTiptapJson(item.description) || 'No description.'}</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <button
@@ -870,10 +870,10 @@ export default function AdminDashboard({ adminEmail }: Props) {
                         </button>
                       </div>
                     </div>
-                    {busyCategoryId === item.id ? <p className="mt-1 text-xs text-[#55692F]">Working...</p> : null}
+                    {busyCategoryId === item.id ? <p className="mt-1 text-xs text-[#0a72b2]">Working...</p> : null}
                   </article>
                 ))}
-                {!filteredCategories.length ? <p className="text-sm text-[#55692F]">No categories match your search.</p> : null}
+                {!filteredCategories.length ? <p className="text-sm text-[#0a72b2]">No categories match your search.</p> : null}
               </div>
             </section>
           </div>
@@ -881,9 +881,9 @@ export default function AdminDashboard({ adminEmail }: Props) {
 
         {activeSection === 'products' ? (
           <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-            <form onSubmit={createProduct} className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+            <form onSubmit={createProduct} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-lg font-bold text-[#2E4210]">
+                <h3 className="text-lg font-bold text-[#0a72b2]">
                   {editingProductId ? 'Update Product' : 'Create Product'}
                 </h3>
                 <div className="inline-flex items-center gap-2 rounded-lg bg-[#f8f8f8] px-2 py-1 text-xs text-[#f0d542]">
@@ -907,7 +907,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
                   className="w-full rounded-xl border border-[#f8f8f8] px-3 py-2 text-sm outline-none focus:border-[#f0d542]"
                 />
                 <div className="space-y-2 rounded-xl border border-[#f8f8f8] p-3">
-                  <p className="text-xs font-semibold text-[#2E4210]">Select Categories:</p>
+                  <p className="text-xs font-semibold text-[#0a72b2]">Select Categories:</p>
                   <div className="space-y-2">
                     {categoryOptions.length > 0 ? (
                       categoryOptions.map((category) => (
@@ -927,7 +927,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
                         </label>
                       ))
                     ) : (
-                      <p className="text-xs text-[#55692F]">No categories available</p>
+                      <p className="text-xs text-[#0a72b2]">No categories available</p>
                     )}
                   </div>
                 </div>
@@ -984,7 +984,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
                 >
                   {editingProductId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
                   {editingProductId ? 'Update Product' : 'Create Product'}
@@ -1001,8 +1001,8 @@ export default function AdminDashboard({ adminEmail }: Props) {
               </div>
             </form>
 
-            <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
-              <h3 className="mb-4 text-lg font-bold text-[#2E4210]">Product List ({filteredProducts.length})</h3>
+            <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
+              <h3 className="mb-4 text-lg font-bold text-[#0a72b2]">Product List ({filteredProducts.length})</h3>
               <div className="space-y-3">
                 {filteredProducts.map((item) => {
                   const categoryNames = parseJsonArray(item.category_id)
@@ -1014,11 +1014,11 @@ export default function AdminDashboard({ adminEmail }: Props) {
                     <article key={item.id} className="rounded-2xl border border-[#f8f8f8]/70 bg-[#f8f8f8]/50 p-3">
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                          <p className="text-xs text-[#55692F]">{item.id}</p>
+                          <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                          <p className="text-xs text-[#0a72b2]">{item.id}</p>
                           <p className="mt-1 text-xs text-[#f0d542]">Categories: {categoryNames || 'None'}</p>
                           <p className="mt-1 text-xs text-[#f0d542]">Badges: {badges || 'None'}</p>
-                          <p className="mt-1 text-xs text-[#55692F]">{getTextFromTiptapJson(item.short_description) || 'No short description.'}</p>
+                          <p className="mt-1 text-xs text-[#0a72b2]">{getTextFromTiptapJson(item.short_description) || 'No short description.'}</p>
                         </div>
                         <div className="flex items-center gap-1">
                           <button
@@ -1041,11 +1041,11 @@ export default function AdminDashboard({ adminEmail }: Props) {
                           </button>
                         </div>
                       </div>
-                      {busyProductId === item.id ? <p className="mt-1 text-xs text-[#55692F]">Working...</p> : null}
+                      {busyProductId === item.id ? <p className="mt-1 text-xs text-[#0a72b2]">Working...</p> : null}
                     </article>
                   );
                 })}
-                {!filteredProducts.length ? <p className="text-sm text-[#55692F]">No products match your search.</p> : null}
+                {!filteredProducts.length ? <p className="text-sm text-[#0a72b2]">No products match your search.</p> : null}
               </div>
             </section>
           </div>

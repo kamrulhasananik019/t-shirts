@@ -122,7 +122,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd) }} />
       <div className="sticky top-0 z-20 border-b border-stone-200 bg-white/90 backdrop-blur">
         <div className="container mx-auto flex items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-[#55692F] transition hover:text-[#2E4210]">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-[#0a72b2] transition hover:text-[#0a72b2]">
             <span>←</span> Back to Home
           </Link>
         </div>
@@ -132,17 +132,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
           <div className="grid items-center gap-8 lg:grid-cols-2">
             <div>
-              <h1 className="mt-2 font-serif text-3xl font-bold leading-tight text-[#2E4210] sm:text-4xl lg:text-5xl">{category.name}</h1>
+              <h1 className="mt-2 font-serif text-3xl font-bold leading-tight text-[#0a72b2] sm:text-4xl lg:text-5xl">{category.name}</h1>
               <RichContent
                 content={categorySummary}
                 wrapperClassName="mt-4 max-w-xl"
-                textClassName="text-base leading-relaxed text-[#55692F]"
+                textClassName="text-base leading-relaxed text-[#0a72b2]"
               />
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-[#55692F]">{products.length} products available</p>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-[#0a72b2]">{products.length} products available</p>
               <div className="mt-6">
                 <Link
                   href={`/contact?category=${encodeURIComponent(category.name)}`}
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#2E4210] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#55692F]"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#0a72b2] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0a72b2]"
                 >
                   Get Quote
                 </Link>
@@ -178,7 +178,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <RichContent
             content={category.description}
             wrapperClassName=""
-            textClassName="text-base leading-relaxed text-[#55692F]"
+            textClassName="text-base leading-relaxed text-[#0a72b2]"
           />
         </div>
       </div>
@@ -186,8 +186,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <div className="container mx-auto px-4 py-14 sm:px-6 lg:px-8">
         {products.length > 0 && (
           <div>
-            <h2 className="mb-2 font-serif text-3xl font-bold text-[#2E4210] sm:text-4xl">Products in {category.name}</h2>
-            <p className="mb-8 text-sm text-[#55692F]">Click any product to view full details and image gallery.</p>
+            <h2 className="mb-2 font-serif text-3xl font-bold text-[#0a72b2] sm:text-4xl">Products in {category.name}</h2>
+            <p className="mb-8 text-sm text-[#0a72b2]">Click any product to view full details and image gallery.</p>
             <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
               {products.map((product) => (
                 <Link key={product.id} href={getProductPath(product.id, product.name, product.slug)} prefetch={false}>
@@ -211,7 +211,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                         <span className="text-sm font-medium text-white">View Details</span>
                       </div>
                     </div>
-                    <h3 className="font-serif text-lg font-semibold text-[#2E4210]">{product.name}</h3>
+                    <h3 className="font-serif text-lg font-semibold text-[#0a72b2]">{product.name}</h3>
                   </div>
                 </Link>
               ))}
@@ -221,7 +221,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
         {products.length === 0 && (
           <div className="rounded-2xl border border-[#F8F8F8] bg-white p-10 text-center">
-            <p className="text-lg text-[#55692F]">No products available in this category yet. Check back soon!</p>
+            <p className="text-lg text-[#0a72b2]">No products available in this category yet. Check back soon!</p>
           </div>
         )}
       </div>

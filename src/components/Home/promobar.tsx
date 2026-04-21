@@ -1,46 +1,81 @@
-import { Truck, MessageCircle, BadgeHelp } from 'lucide-react';
+import { MapPin, Star, ThumbsUp, Truck } from 'lucide-react';
 
 const items = [
   {
+    key: 'reviews',
+    icon: Star,
+    textPrefix: '',
+    highlight: 'Five star reviews',
+    textSuffix: '',
+  },
+  {
+    key: 'trade',
+    icon: ThumbsUp,
+    textPrefix: '',
+    highlight: 'Trade Discounts',
+    textSuffix: 'on all products',
+  },
+  {
+    key: 'collect',
+    icon: MapPin,
+    textPrefix: 'Free ',
+    highlight: 'Collect in Store',
+    textSuffix: '',
+  },
+  {
+    key: 'delivery',
     icon: Truck,
-    title: 'Free delivery',
-    description: 'On orders £40+',
-  },
-  {
-    icon: MessageCircle,
-    title: 'Flexible help when you need it',
-    description: `We're here by phone, email & live chat`,
-  },
-  {
-    icon: BadgeHelp,
-    title: 'Create with confidence',
-    description: 'Design it yourself, or with help',
+    textPrefix: 'Free delivery over £99 ',
+    highlight: '',
+    textSuffix: 'exc. VAT',
   },
 ] as const;
 
 export default function PromoBar() {
   return (
-    <section className="bg-[#f5f5f5]">
-      <div className="container mx-auto grid grid-cols-1 divide-y divide-gray-200 border-b border-gray-200 px-4  md:grid-cols-3 md:divide-x md:divide-y-0 md:border-0">
-        {items.map((item, index) => {
+    <section className="border-t-4 border-[#0a72b2] bg-[#eef2f4]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-4 py-4 md:flex-row md:items-center md:justify-between md:gap-6 lg:gap-8">
+          {items.map((item) => {
           const Icon = item.icon;
           return (
             <div
-              key={index}
-              className="flex items-center gap-4 py-5 md:justify-center md:py-6"
+              key={item.key}
+              className="flex items-center gap-2.5 text-[#1f2730]"
             >
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#f8f8f8] md:h-16 md:w-16">
-                <Icon className="h-6 w-6 text-gray-800 md:h-7 md:w-7" strokeWidth={1.8} />
+              <div className="flex shrink-0 items-center justify-center">
+                {item.key === 'reviews' ? (
+                  <div className="flex items-center gap-0.5 text-[#0a72b2]">
+                    <Icon className="h-4 w-4 fill-current" strokeWidth={2.1} />
+                    <Icon className="h-4 w-4 fill-current" strokeWidth={2.1} />
+                    <Icon className="h-4 w-4 fill-current" strokeWidth={2.1} />
+                    <Icon className="h-4 w-4 fill-current" strokeWidth={2.1} />
+                    <Icon className="h-4 w-4 fill-current" strokeWidth={2.1} />
+                  </div>
+                ) : (
+                  <Icon className="h-4.5 w-4.5 text-[#0a72b2]" strokeWidth={2.3} />
+                )}
               </div>
-              <div>
-                <h3 className="font-serif text-base font-semibold leading-tight text-gray-900 md:text-[22px]">
-                  {item.title}
-                </h3>
-                <p className="mt-1 text-sm leading-snug text-gray-600 md:text-[18px]">{item.description}</p>
+
+              <div className="text-base leading-none tracking-tight">
+                {item.textPrefix ? <span>{item.textPrefix}</span> : null}
+                {item.highlight ? (
+                  <span
+                    className={
+                      item.key === 'reviews' || item.key === 'trade'
+                        ? 'font-semibold text-[#0a72b2] underline decoration-[#0a72b2]/35 underline-offset-3'
+                        : 'font-semibold text-[#101418]'
+                    }
+                  >
+                    {item.highlight}
+                  </span>
+                ) : null}
+                {item.textSuffix ? <span> {item.textSuffix}</span> : null}
               </div>
             </div>
           );
-        })}
+          })}
+        </div>
       </div>
     </section>
   );

@@ -198,7 +198,7 @@ export default function Navbar({ categories }: NavbarProps) {
 
   return (
     <div className="sticky top-0 z-50 bg-[#F8F8F8]">
-      <div className="hidden border-b border-[#F0D542]/30 bg-[#2E4210] py-2 lg:block">
+      <div className="hidden border-b border-[#F0D542]/30 bg-[#0a72b2] py-2 lg:block">
         <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 text-[11px] font-medium uppercase tracking-wider text-[#F8F8F8] sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-6">
             <a href="mailto:order@primeprint.uk" className="inline-flex items-center gap-1.5 transition hover:text-[#F0D542]">
@@ -242,7 +242,7 @@ export default function Navbar({ categories }: NavbarProps) {
                   onBlur={() => setTimeout(() => setSearchFocused(false), 200)}
                   className="w-full rounded-xl border border-[#F8F8F8] bg-white py-3 pl-12 pr-6 text-sm transition-all focus:border-[#F0D542] focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#F0D542]/15"
                 />
-                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#55692F]" />
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[#0a72b2]" />
               </div>
             </form>
 
@@ -262,8 +262,8 @@ export default function Navbar({ categories }: NavbarProps) {
                         }}
                         className="group flex w-full items-center justify-between rounded-lg px-4 py-3 text-left text-sm transition-colors hover:bg-[#F8F8F8]/40"
                       >
-                        <span className="font-semibold text-[#2E4210] group-hover:text-[#2E4210]">{result.label}</span>
-                        <span className="rounded bg-[#F8F8F8] px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#55692F] group-hover:bg-[#F8F8F8] group-hover:text-[#F0D542]">
+                        <span className="font-semibold text-[#0a72b2] group-hover:text-[#0a72b2]">{result.label}</span>
+                        <span className="rounded bg-[#F8F8F8] px-2 py-0.5 text-[9px] font-black uppercase tracking-widest text-[#0a72b2] group-hover:bg-[#F8F8F8] group-hover:text-[#F0D542]">
                           {result.type}
                         </span>
                       </button>
@@ -283,12 +283,12 @@ export default function Navbar({ categories }: NavbarProps) {
               href="/"
               prefetch={false}
               className={`hidden rounded-lg px-3 py-2 text-sm font-bold transition sm:block hover:bg-stone-100 ${
-                pathname === '/' ? 'text-[#2E4210]' : 'text-stone-800'
+                pathname === '/' ? 'text-[#0a72b2]' : 'text-stone-800'
               }`}
             >
               Home
             </Link>
-            <Link href="/contact" prefetch={false} className="rounded-full bg-[#2E4210] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#55692F]">
+            <Link href="/contact" prefetch={false} className="rounded-full bg-[#0a72b2] px-5 py-2.5 text-sm font-bold text-white transition hover:bg-[#0a72b2]">
               Contact Us
             </Link>
           </div>
@@ -332,8 +332,8 @@ export default function Navbar({ categories }: NavbarProps) {
                     prefetch={false}
                     className={`inline-block whitespace-nowrap rounded-md px-4 py-3 text-[13px] font-bold transition-all ${
                       activeSlug === cat.id || pathname === getCategoryPath(cat.id, cat.name)
-                        ? 'bg-[#F0D542] text-[#2E4210]'
-                        : 'text-[#55692F] hover:bg-[#F8F8F8] hover:text-[#2E4210]'
+                        ? 'bg-[#F0D542] text-[#0a72b2]'
+                        : 'text-[#0a72b2] hover:bg-[#F8F8F8] hover:text-[#0a72b2]'
                     }`}
                   >
                     {cat.name}
@@ -355,7 +355,7 @@ export default function Navbar({ categories }: NavbarProps) {
               <div className="col-span-9 grid grid-cols-3 gap-10">
                 {chunkProducts(activeCategory?.products ?? [], 7).map((section, idx) => (
                   <div key={`${activeCategory?.id ?? 'category'}-${idx}`} className="space-y-5">
-                    <h3 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#55692F]">
+                    <h3 className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#0a72b2]">
                       <span className="h-1 w-1 rounded-full bg-[#F0D542]"></span>
                       {idx === 0 ? 'Top Choices' : 'Extended Range'}
                     </h3>
@@ -365,7 +365,7 @@ export default function Navbar({ categories }: NavbarProps) {
                           <Link
                             href={getProductPath(product.id, product.name, product.slug)}
                             prefetch={false}
-                            className="group/item flex items-center justify-between py-0.5 text-[14px] font-medium text-[#55692F] transition hover:text-[#F0D542]"
+                            className="group/item flex items-center justify-between py-0.5 text-[14px] font-medium text-[#0a72b2] transition hover:text-[#F0D542]"
                           >
                             <span>{product.name}</span>
                             <ArrowRight className="h-3 w-3 -translate-x-2 opacity-0 transition-all group-hover/item:translate-x-0 group-hover/item:opacity-100" />
@@ -400,7 +400,7 @@ export default function Navbar({ categories }: NavbarProps) {
                   <div className="mt-6">
                     <h4 className="text-lg font-black text-stone-900">{activeCategory?.name}</h4>
                     <p className="mt-2 text-sm leading-relaxed text-stone-500">{activeCategoryDescription}</p>
-                    <div className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F0D542] py-3 text-sm font-bold text-[#2E4210] transition group-hover:bg-[#55692F] group-hover:text-white">
+                    <div className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-[#F0D542] py-3 text-sm font-bold text-[#0a72b2] transition group-hover:bg-[#0a72b2] group-hover:text-white">
                       Explore All <ArrowRight className="h-4 w-4" />
                     </div>
                   </div>
@@ -435,7 +435,7 @@ export default function Navbar({ categories }: NavbarProps) {
               />
             </Link>
             <button onClick={() => setIsMobileMenuOpen(false)} className="rounded-full p-2 hover:bg-[#F8F8F8]" aria-label="Close menu">
-              <X className="h-6 w-6 text-[#55692F]" />
+              <X className="h-6 w-6 text-[#0a72b2]" />
             </button>
           </div>
 
@@ -450,7 +450,7 @@ export default function Navbar({ categories }: NavbarProps) {
                   className="w-full rounded-xl bg-white py-3 pl-11 pr-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-[#F0D542]/20"
                 />
               </form>
-              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#55692F]" />
+              <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-[#0a72b2]" />
             </div>
           </div>
 
@@ -459,8 +459,8 @@ export default function Navbar({ categories }: NavbarProps) {
               {categories.map((cat) => (
                 <li key={cat.id} className="overflow-hidden rounded-xl">
                   <button
-                    className={`flex w-full items-center justify-between px-4 py-4 font-bold text-[#2E4210] transition ${
-                      mobileActiveSlug === cat.id ? 'bg-[#F0D542]/20 text-[#2E4210]' : 'hover:bg-[#F8F8F8]'
+                    className={`flex w-full items-center justify-between px-4 py-4 font-bold text-[#0a72b2] transition ${
+                      mobileActiveSlug === cat.id ? 'bg-[#F0D542]/20 text-[#0a72b2]' : 'hover:bg-[#F8F8F8]'
                     }`}
                     onClick={() => setMobileActiveSlug((prev) => (prev === cat.id ? null : cat.id))}
                   >
@@ -480,7 +480,7 @@ export default function Navbar({ categories }: NavbarProps) {
                             href={getProductPath(product.id, product.name, product.slug)}
                             prefetch={false}
                             onClick={() => setIsMobileMenuOpen(false)}
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-[#55692F] transition hover:bg-white hover:text-[#F0D542]"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-[#0a72b2] transition hover:bg-white hover:text-[#F0D542]"
                           >
                             <span className="h-1.5 w-1.5 rounded-full bg-[#F0D542]"></span>
                             {product.name}
@@ -492,14 +492,14 @@ export default function Navbar({ categories }: NavbarProps) {
                 </li>
               ))}
               <li className="mt-4 border-t border-[#F8F8F8] px-4 pt-4">
-                <Link href="/" prefetch={false} onClick={() => setIsMobileMenuOpen(false)} className="mb-3 block rounded-xl border border-[#F8F8F8] p-3 text-center font-bold text-[#2E4210]">
+                <Link href="/" prefetch={false} onClick={() => setIsMobileMenuOpen(false)} className="mb-3 block rounded-xl border border-[#F8F8F8] p-3 text-center font-bold text-[#0a72b2]">
                   Home
                 </Link>
                 <Link
                   href="/contact"
                   prefetch={false}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-2 rounded-xl bg-[#2E4210] p-4 text-center font-bold text-white shadow-lg"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-[#0a72b2] p-4 text-center font-bold text-white shadow-lg"
                 >
                   Contact Us <ArrowRight className="h-4 w-4" />
                 </Link>

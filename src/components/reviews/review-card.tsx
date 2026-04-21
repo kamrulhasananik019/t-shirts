@@ -36,18 +36,18 @@ export default function ReviewCard({ name, rating, text, createdAt }: ReviewCard
           ))}
         </div>
 
-        <p className="text-base font-medium leading-relaxed text-[#55692F]">&ldquo;{text}&rdquo;</p>
+        <p className="text-base font-medium leading-relaxed text-[#0a72b2]">&ldquo;{text}&rdquo;</p>
       </div>
 
       <div className="mt-6 border-t border-[#F8F8F8] pt-4">
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F8F8F8] text-sm font-bold text-[#2E4210]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#F8F8F8] text-sm font-bold text-[#0a72b2]">
               {getInitials(name)}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="text-sm font-bold text-[#2E4210]">{name}</p>
-              <p className="text-xs text-[#55692F]">{new Date(createdAt).toLocaleDateString()}</p>
+              <p className="text-sm font-bold text-[#0a72b2]">{name}</p>
+              <p className="text-xs text-[#0a72b2]">{new Date(createdAt).toLocaleDateString()}</p>
             </div>
           </div>
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="mt-12 border-t-4 border-[#F0D542] bg-linear-to-br from-[#2E4210] via-[#55692F] to-[#1D0000] text-[#F8F8F8]">
+    <footer className="mt-12 border-t-4 border-[#F0D542] bg-linear-to-br from-[#0a72b2] via-[#0a72b2] to-[#1D0000] text-[#F8F8F8]">
       <div className="h-1 w-full bg-[#F0D542]" />
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -52,7 +52,7 @@ export default function Footer() {
             <Link
               href="/#contact"
               prefetch={false}
-              className="inline-flex items-center justify-center rounded-lg bg-[#F0D542] px-5 py-2.5 text-sm font-bold text-[#2E4210] transition-colors hover:bg-white [font-family:var(--font-dm-sans)]"
+              className="inline-flex items-center justify-center rounded-lg bg-[#F0D542] px-5 py-2.5 text-sm font-bold text-[#0a72b2] transition-colors hover:bg-white [font-family:var(--font-dm-sans)]"
             >
               Contact Us
             </Link>

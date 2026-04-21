@@ -228,9 +228,9 @@ export default function ReviewManager({
 
   return (
     <div className="mt-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-      <form onSubmit={createOrUpdateReview} className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+      <form onSubmit={createOrUpdateReview} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-[#2E4210]">{editingReviewId ? 'Update Review' : 'Create Review'}</h3>
+          <h3 className="text-lg font-bold text-[#0a72b2]">{editingReviewId ? 'Update Review' : 'Create Review'}</h3>
           <div className="inline-flex items-center gap-2 rounded-lg bg-[#f8f8f8] px-2 py-1 text-xs text-[#f0d542]">
             <MessageSquare className="h-4 w-4" />
             Review CRUD
@@ -286,7 +286,7 @@ export default function ReviewManager({
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
           >
             {editingReviewId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
             {editingReviewId ? 'Update Review' : 'Create Review'}
@@ -303,11 +303,11 @@ export default function ReviewManager({
         </div>
       </form>
 
-      <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+      <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
         <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
-            <h3 className="text-lg font-bold text-[#2E4210]">Review Sections</h3>
-            <p className="text-sm text-[#55692F]">Click a tab to show only that review group.</p>
+            <h3 className="text-lg font-bold text-[#0a72b2]">Review Sections</h3>
+            <p className="text-sm text-[#0a72b2]">Click a tab to show only that review group.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             {reviewTabs.map((tab) => {
@@ -317,7 +317,7 @@ export default function ReviewManager({
                   key={tab.key}
                   type="button"
                   onClick={() => setActiveTab(tab.key)}
-                  className={`rounded-xl border px-3 py-2 text-sm font-semibold transition ${tab.tone} ${isActive ? 'ring-2 ring-[#2E4210]/15' : 'opacity-80 hover:opacity-100'}`}
+                  className={`rounded-xl border px-3 py-2 text-sm font-semibold transition ${tab.tone} ${isActive ? 'ring-2 ring-[#0a72b2]/15' : 'opacity-80 hover:opacity-100'}`}
                 >
                   {tab.label}
                 </button>
@@ -327,7 +327,7 @@ export default function ReviewManager({
         </div>
 
         <div className="mb-4 rounded-2xl border border-[#f8f8f8]/70 bg-[#f8f8f8]/35 p-3">
-          <h4 className="text-sm font-semibold text-[#2E4210]">{activeTabLabel} ({visibleReviews.length})</h4>
+          <h4 className="text-sm font-semibold text-[#0a72b2]">{activeTabLabel} ({visibleReviews.length})</h4>
         </div>
 
         {visibleReviews.length > 0 ? (
@@ -336,12 +336,12 @@ export default function ReviewManager({
               <article key={item.id} className="rounded-2xl border border-[#f8f8f8]/70 bg-[#f8f8f8]/50 p-3">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <p className="font-semibold text-[#2E4210]">{item.name}</p>
-                    <p className="text-xs text-[#55692F]">{item.email}</p>
+                    <p className="font-semibold text-[#0a72b2]">{item.name}</p>
+                    <p className="text-xs text-[#0a72b2]">{item.email}</p>
                     <p className="mt-1 text-xs text-[#f0d542]">Rating: {item.rating}/5</p>
                     <p className="mt-1 text-xs text-[#f0d542]">Status: {item.status}</p>
                     <p className="mt-1 text-xs text-[#f0d542]">Source: {item.source}</p>
-                    <p className="mt-2 text-xs text-[#55692F]">{item.text}</p>
+                    <p className="mt-2 text-xs text-[#0a72b2]">{item.text}</p>
                   </div>
 
                   <div className="flex items-center gap-1">
@@ -384,15 +384,15 @@ export default function ReviewManager({
                   </div>
                 </div>
 
-                {busyReviewId === item.id ? <p className="mt-1 text-xs text-[#55692F]">Working...</p> : null}
+                {busyReviewId === item.id ? <p className="mt-1 text-xs text-[#0a72b2]">Working...</p> : null}
               </article>
             ))}
           </div>
         ) : (
-          <p className="text-sm text-[#55692F]">No reviews in this section.</p>
+          <p className="text-sm text-[#0a72b2]">No reviews in this section.</p>
         )}
 
-        {!filteredReviews.length ? <p className="mt-4 text-sm text-[#55692F]">No reviews match your search.</p> : null}
+        {!filteredReviews.length ? <p className="mt-4 text-sm text-[#0a72b2]">No reviews match your search.</p> : null}
       </section>
     </div>
   );

@@ -47,11 +47,11 @@ export default function ReviewSubmitForm({ onSubmitted }: ReviewSubmitFormProps)
 
   return (
     <form onSubmit={submit} className="mt-5 rounded-2xl border border-[#F8F8F8] bg-white p-5 shadow-sm">
-      <h3 className="text-xl font-bold text-[#2E4210]">Drop Review</h3>
-      <p className="mt-1 text-sm text-[#55692F]">Use your Gmail. Review will be visible after admin approval.</p>
+      <h3 className="text-xl font-bold text-[#0a72b2]">Drop Review</h3>
+      <p className="mt-1 text-sm text-[#0a72b2]">Use your Gmail. Review will be visible after admin approval.</p>
 
       {error ? <p className="mt-3 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p> : null}
-      {success ? <p className="mt-3 rounded-lg border border-[#F8F8F8] bg-[#F8F8F8] px-3 py-2 text-sm text-[#2E4210]">{success}</p> : null}
+      {success ? <p className="mt-3 rounded-lg border border-[#F8F8F8] bg-[#F8F8F8] px-3 py-2 text-sm text-[#0a72b2]">{success}</p> : null}
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2">
         <input
@@ -74,7 +74,7 @@ export default function ReviewSubmitForm({ onSubmitted }: ReviewSubmitFormProps)
       </div>
 
       <div className="mt-3">
-        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#55692F]">Rating</label>
+        <label className="mb-1 block text-xs font-semibold uppercase tracking-wider text-[#0a72b2]">Rating</label>
         <select
           value={form.rating}
           onChange={(event) => setForm((prev) => ({ ...prev, rating: Number(event.target.value) }))}
@@ -100,7 +100,7 @@ export default function ReviewSubmitForm({ onSubmitted }: ReviewSubmitFormProps)
       <button
         type="submit"
         disabled={submitting}
-        className="mt-3 inline-flex items-center rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#F0D542] disabled:opacity-60"
+        className="mt-3 inline-flex items-center rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#F0D542] disabled:opacity-60"
       >
         {submitting ? 'Submitting...' : 'Submit Review'}
       </button>

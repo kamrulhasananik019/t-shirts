@@ -53,14 +53,14 @@ export default async function FaqsPage() {
         <div className="mb-12 max-w-3xl">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-[#55692F] transition hover:text-[#2E4210] mb-6"
+            className="inline-flex items-center gap-2 text-sm font-medium text-[#0a72b2] transition hover:text-[#0a72b2] mb-6"
           >
             <span>←</span> Back to Home
           </Link>
-          <h1 className="font-serif text-4xl font-bold leading-tight text-[#2E4210] sm:text-5xl">
+          <h1 className="font-serif text-4xl font-bold leading-tight text-[#0a72b2] sm:text-5xl">
             Frequently Asked Questions
           </h1>
-          <p className="mt-4 text-base leading-relaxed text-[#55692F]">
+          <p className="mt-4 text-base leading-relaxed text-[#0a72b2]">
             Find answers to common questions about our printing services, delivery options, and custom orders.
           </p>
         </div>
@@ -74,19 +74,19 @@ export default async function FaqsPage() {
             />
           ) : (
             <div className="rounded-xl border border-[#F8F8F8] bg-white p-8 text-center">
-              <p className="text-sm font-medium text-[#55692F]">No FAQ entries have been published yet.</p>
+              <p className="text-sm font-medium text-[#0a72b2]">No FAQ entries have been published yet.</p>
             </div>
           )}
         </div>
 
         <div className="mt-16 rounded-2xl border border-[#F8F8F8] bg-white p-8 text-center md:p-10">
-          <h2 className="font-serif text-2xl font-bold text-[#2E4210]">Still have questions?</h2>
-          <p className="mt-3 text-sm text-[#55692F]">
+          <h2 className="font-serif text-2xl font-bold text-[#0a72b2]">Still have questions?</h2>
+          <p className="mt-3 text-sm text-[#0a72b2]">
             Get in touch with our team for personalized support.
           </p>
           <Link
             href="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#2E4210] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#F0D542]"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#0a72b2] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#F0D542]"
           >
             Contact Us
           </Link>

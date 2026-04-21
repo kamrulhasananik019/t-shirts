@@ -32,18 +32,18 @@ export default function ReviewsPanel({ initialReviews }: ReviewsPanelProps) {
           <div className="max-w-2xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#F8F8F8] bg-white px-3 py-1">
               <span className="h-2 w-2 rounded-full bg-[#F0D542]" />
-              <p className="text-xs font-bold uppercase tracking-widest text-[#55692F]">Trusted by customers</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#0a72b2]">Trusted by customers</p>
             </div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#2E4210] sm:text-4xl md:text-5xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-[#0a72b2] sm:text-4xl md:text-5xl">
               Real customer voices.
             </h2>
-            <p className="mt-2 text-sm text-[#55692F]">Only admin-approved reviews are shown here.</p>
+            <p className="mt-2 text-sm text-[#0a72b2]">Only admin-approved reviews are shown here.</p>
           </div>
 
           <button
             type="button"
             onClick={() => setShowForm((value) => !value)}
-            className="inline-flex items-center rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#F0D542]"
+            className="inline-flex items-center rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#F0D542]"
           >
             {showForm ? 'Close Form' : 'Drop Review'}
           </button>
@@ -79,7 +79,7 @@ export default function ReviewsPanel({ initialReviews }: ReviewsPanelProps) {
             </Swiper>
           </div>
         ) : (
-          <div className="rounded-2xl border border-[#F8F8F8] bg-white p-8 text-center text-[#55692F]">
+          <div className="rounded-2xl border border-[#F8F8F8] bg-white p-8 text-center text-[#0a72b2]">
             No approved reviews yet. Be the first to drop one.
           </div>
         )}

@@ -74,7 +74,7 @@ export default function DiscountsAndPackagesSlider({ items }: DiscountsAndPackag
               <Link
                 href={getProductPath(card.id, card.name, card.slug)}
                 prefetch={false}
-                className="group relative isolate block h-full w-full min-h-[24rem] overflow-hidden rounded-3xl border border-[#F8F8F8] bg-linear-to-br from-[#2E4210] via-[#F0D542] to-[#55692F] p-8 text-left text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:min-h-[26rem] sm:p-10"
+                className="group relative isolate block h-full w-full min-h-[24rem] overflow-hidden rounded-3xl border border-[#F8F8F8] bg-linear-to-br from-[#0a72b2] via-[#F0D542] to-[#0a72b2] p-8 text-left text-white shadow-md transition duration-300 hover:-translate-y-0.5 hover:shadow-lg sm:min-h-[26rem] sm:p-10"
               >
                 <div className="absolute inset-x-0 top-0 h-px bg-white/25" aria-hidden="true" />
 
@@ -91,7 +91,7 @@ export default function DiscountsAndPackagesSlider({ items }: DiscountsAndPackag
                     </p>
                   </div>
 
-                  <span className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#2E4210] transition duration-300 group-hover:bg-[#F8F8F8]">
+                  <span className="mt-8 inline-flex items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-[#0a72b2] transition duration-300 group-hover:bg-[#F8F8F8]">
                     View Details
                     <span aria-hidden="true" className="text-base">
                       →

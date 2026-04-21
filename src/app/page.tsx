@@ -10,7 +10,6 @@ import Reviews from "@/components/Home/reviews";
 import InfiniteMarquee from "@/components/shared/infinite-marquee";
 import { getCategories } from "@/services/category.service";
 import { getProductCategoryTitleMap, getSameDayPrinting } from "@/services/product.service";
-import Banner from "@/components/Home/banner";
 
 const CategorySlider = nextDynamic(() => import("@/components/Home/categoryslider"), {
   loading: () => <HomeDeferredFallback minHeight="min-h-[420px]" />,
@@ -64,7 +63,7 @@ export default async function Home() {
 
   return (
     <main className="overflow-hidden bg-stone-50 font-sans">
-       {/* <PromoBar /> */}
+       <PromoBar />
       <CategorySlider categories={categories} />
       {/* <Banner /> */}
 
@@ -74,10 +73,13 @@ export default async function Home() {
 
       <SameDayPrinting products={sameDayPrinting} productCategoryTitles={sameDayCategoryTitles} />
       <DiscountsAndPackages />
-      <section className="bg-stone-50 py-14 md:py-18">
+     
+      <Faq />
+      <Reviews />
+       <section className="bg-stone-50 py-14 md:py-18">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-3xl border border-stone-200 bg-white shadow-sm">
-            <div className="bg-linear-to-r from-[#2E4210] via-[#F0D542] to-[#55692F] p-8 text-white md:p-10">
+            <div className="bg-linear-to-r from-[#0a72b2] via-[#F0D542] to-[#0a72b2] p-8 text-white md:p-10">
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-cyan-100">Need Printing Fast?</p>
               <h2 className="max-w-3xl font-serif text-3xl font-black leading-tight md:text-4xl">
                 Choose a quick quote or fast delivery path in seconds.
@@ -90,7 +92,7 @@ export default async function Home() {
             <div className="grid gap-4 p-6 md:grid-cols-2 md:p-8">
               <div className="flex h-full flex-col justify-between rounded-2xl border border-stone-200 bg-stone-50 p-6">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#2E4210]">Quote</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#0a72b2]">Quote</p>
                   <h3 className="mt-3 text-2xl font-black text-stone-900">Request a fast print quote</h3>
                   <p className="mt-3 text-sm leading-relaxed text-stone-600">
                     Tell us what you need and get practical guidance on pricing, materials, and production timing.
@@ -99,7 +101,7 @@ export default async function Home() {
                 <Link
                   href="/contact"
                   prefetch={false}
-                  className="mt-6 inline-flex w-fit items-center justify-center rounded-xl bg-[#2E4210] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#F0D542]"
+                  className="mt-6 inline-flex w-fit items-center justify-center rounded-xl bg-[#0a72b2] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#F0D542]"
                 >
                   Get a Quote
                 </Link>
@@ -107,7 +109,7 @@ export default async function Home() {
 
               <div className="flex h-full flex-col justify-between rounded-2xl border border-[#F8F8F8] bg-[#F8F8F8] p-6">
                 <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#2E4210]">Delivery</p>
+                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#0a72b2]">Delivery</p>
                   <h3 className="mt-3 text-2xl font-black text-stone-900">Arrange same day delivery</h3>
                   <p className="mt-3 text-sm leading-relaxed text-stone-600">
                     Perfect for urgent jobs that need fast turnaround and dependable delivery across London and the UK.
@@ -116,7 +118,7 @@ export default async function Home() {
                 <Link
                   href="/contact?intent=order"
                   prefetch={false}
-                  className="mt-6 inline-flex w-fit items-center justify-center rounded-xl border border-[#2E4210] px-6 py-3 text-sm font-bold text-[#2E4210] transition hover:bg-[#2E4210] hover:text-white"
+                  className="mt-6 inline-flex w-fit items-center justify-center rounded-xl border border-[#0a72b2] px-6 py-3 text-sm font-bold text-[#0a72b2] transition hover:bg-[#0a72b2] hover:text-white"
                 >
                   Delivery Help
                 </Link>
@@ -125,8 +127,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-      <Faq />
-      <Reviews />
       <LocationMap />
     </main>
   );

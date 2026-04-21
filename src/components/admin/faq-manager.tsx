@@ -178,9 +178,9 @@ export default function FaqManager({ faqs, searchTerm, onRefresh, setError, setS
 
   return (
     <div className="mt-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
-      <form onSubmit={createOrUpdateFaq} className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
+      <form onSubmit={createOrUpdateFaq} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
         <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-[#2E4210]">{editingFaqId ? 'Update FAQ' : 'Create FAQ'}</h3>
+          <h3 className="text-lg font-bold text-[#0a72b2]">{editingFaqId ? 'Update FAQ' : 'Create FAQ'}</h3>
           <div className="inline-flex items-center gap-2 rounded-lg bg-[#f8f8f8] px-2 py-1 text-xs text-[#f0d542]">
             <MessageCircleQuestion className="h-4 w-4" />
             FAQ CRUD
@@ -217,7 +217,7 @@ export default function FaqManager({ faqs, searchTerm, onRefresh, setError, setS
                 type="checkbox"
                 checked={faqForm.isActive}
                 onChange={(event) => setFaqForm((state) => ({ ...state, isActive: event.target.checked }))}
-                className="h-4 w-4 accent-[#2E4210]"
+                className="h-4 w-4 accent-[#0a72b2]"
               />
               Visible on homepage
             </label>
@@ -227,7 +227,7 @@ export default function FaqManager({ faqs, searchTerm, onRefresh, setError, setS
         <div className="mt-4 flex flex-wrap gap-2">
           <button
             type="submit"
-            className="inline-flex items-center gap-2 rounded-xl bg-[#2E4210] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
           >
             {editingFaqId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
             {editingFaqId ? 'Update FAQ' : 'Create FAQ'}
@@ -252,17 +252,17 @@ export default function FaqManager({ faqs, searchTerm, onRefresh, setError, setS
         </div>
       </form>
 
-      <section className="rounded-3xl border border-[#2E4210]/10 bg-white p-5 shadow-sm">
-        <h3 className="mb-4 text-lg font-bold text-[#2E4210]">FAQ List ({filteredFaqs.length})</h3>
+      <section className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
+        <h3 className="mb-4 text-lg font-bold text-[#0a72b2]">FAQ List ({filteredFaqs.length})</h3>
         <div className="space-y-3">
           {filteredFaqs.map((item) => (
             <article key={item.id} className="rounded-2xl border border-[#f8f8f8]/70 bg-[#f8f8f8]/50 p-3">
               <div className="flex items-start justify-between gap-3">
                 <div>
-                  <p className="font-semibold text-[#2E4210]">{item.question}</p>
-                  <p className="mt-1 text-xs text-[#55692F]">Order: {item.sortOrder}</p>
+                  <p className="font-semibold text-[#0a72b2]">{item.question}</p>
+                  <p className="mt-1 text-xs text-[#0a72b2]">Order: {item.sortOrder}</p>
                   <p className="mt-1 text-xs text-[#f0d542]">Status: {item.isActive ? 'Active' : 'Hidden'}</p>
-                  <p className="mt-2 text-xs text-[#55692F]">{item.answer}</p>
+                  <p className="mt-2 text-xs text-[#0a72b2]">{item.answer}</p>
                 </div>
 
                 <div className="flex items-center gap-1">
@@ -295,10 +295,10 @@ export default function FaqManager({ faqs, searchTerm, onRefresh, setError, setS
                   </button>
                 </div>
               </div>
-              {busyFaqId === item.id ? <p className="mt-1 text-xs text-[#55692F]">Working...</p> : null}
+              {busyFaqId === item.id ? <p className="mt-1 text-xs text-[#0a72b2]">Working...</p> : null}
             </article>
           ))}
-          {!filteredFaqs.length ? <p className="text-sm text-[#55692F]">No FAQs match your search.</p> : null}
+          {!filteredFaqs.length ? <p className="text-sm text-[#0a72b2]">No FAQs match your search.</p> : null}
         </div>
       </section>
     </div>
