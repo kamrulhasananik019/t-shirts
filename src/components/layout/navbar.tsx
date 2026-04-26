@@ -201,8 +201,8 @@ export default function Navbar({ categories }: NavbarProps) {
       <div className="hidden border-b border-[#F0D542]/30 bg-[#0a72b2] py-2 lg:block">
         <div className="container mx-auto flex flex-wrap items-center justify-between gap-3 px-4 text-[11px] font-medium uppercase tracking-wider text-[#F8F8F8] sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-6">
-            <a href="mailto:order@primeprint.uk" className="inline-flex items-center gap-1.5 transition hover:text-[#F0D542]">
-              <Mail className="h-3.5 w-3.5" /> order@primeprint.uk
+            <a href="mailto:order@tshirtprintinglondon.co.uk" className="inline-flex items-center gap-1.5 transition hover:text-[#F0D542]">
+              <Mail className="h-3.5 w-3.5" /> order@tshirtprintinglondon.co.uk
             </a>
             <a href="tel:+44205550147" className="inline-flex items-center gap-1.5 transition hover:text-[#F0D542]">
               <Phone className="h-3.5 w-3.5" /> +44 (20) 555-0147
@@ -221,7 +221,7 @@ export default function Navbar({ categories }: NavbarProps) {
             <Link href="/" prefetch={false} className="flex items-center ps-3">
               <Image
                 src="/logo.png"
-                alt="PrimePrint"
+                alt="Same day t-shirt printing logo"
                 width={400}
                 height={120}
                 priority
@@ -427,7 +427,7 @@ export default function Navbar({ categories }: NavbarProps) {
              <Link href="/" prefetch={false} className="flex items-center">
               <Image
                 src="/logo.png"
-                alt="PrimePrint"
+                alt="Same day t-shirt printing logo"
                 width={400}
                 height={120}
                 priority

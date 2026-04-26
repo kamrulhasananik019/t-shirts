@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import nextDynamic from "next/dynamic";
 import Link from "next/link";
+import Banner from "@/components/Home/banner";
 import DiscountsAndPackages from "@/components/Home/discountsandpackages";
 import HomeDeferredFallback from "@/components/Home/home-deferred-fallback";
 import Faq from "@/components/Home/faq";
@@ -9,6 +10,7 @@ import PromoBar from "@/components/Home/promobar";
 import Reviews from "@/components/Home/reviews";
 import PartnershipsSection from "@/components/Home/partnerships-section";
 import InfiniteMarquee from "@/components/shared/infinite-marquee";
+import { siteUrl } from "@/lib/site";
 import { getCategories } from "@/services/category.service";
 import { getProductCategoryTitleMap, getSameDayPrinting } from "@/services/product.service";
 
@@ -24,35 +26,67 @@ const SameDayPrinting = nextDynamic(() => import("@/components/Home/samedaydeliv
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: "Same Day T-Shirt Printing UK | Prime Prints",
+  title: "Same Day T-Shirt Printing London",
   description:
-    "Prime Prints provides custom t-shirt printing in the UK with same day printing and fast delivery for urgent orders.",
+    "Same day t-shirt printing in London with fast UK delivery for urgent custom orders, branded tees, and event clothing.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Prime Prints | Same Day T-Shirt Printing UK",
+    title: "Same Day T-Shirt Printing London",
     description:
-      "Custom UK t-shirt printing with same day print turnaround and reliable delivery.",
+      "Same day t-shirt printing in London with fast turnaround, custom branding, and reliable UK delivery.",
     url: "/",
     type: "website",
-    siteName: "Prime Prints",
+    siteName: "Same Day T-Shirt Printing London",
     images: [
       {
         url: "https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1600&q=80",
         width: 1600,
         height: 900,
-        alt: "Prime Prints same day t-shirt printing UK",
+        alt: "Same day t-shirt printing London",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Prints | Same Day T-Shirt Printing UK",
+    title: "Same Day T-Shirt Printing London",
     description:
-      "UK custom t-shirt printing with same day service and fast delivery.",
+      "Same day custom t-shirt printing in London with fast delivery across the UK.",
     images: ["https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=1600&q=80"],
   },
+  keywords: [
+    "same day t-shirt printing london",
+    "t-shirt printing london",
+    "custom t-shirt printing london",
+    "same day printing london",
+    "same day delivery london",
+    "branded t shirt printing",
+    "urgent t-shirt printing uk",
+  ],
+  other: {
+    "geo.region": "GB-LND",
+    "geo.placename": "London",
+    "geo.position": "51.5074;-0.1278",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Same Day T-Shirt Printing London",
+  url: siteUrl,
+  description:
+    "Same day t-shirt printing in London with fast UK delivery for urgent custom orders.",
+};
+
+const homepageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Same Day T-Shirt Printing London",
+  url: siteUrl,
+  description:
+    "Featured same day t-shirt printing, delivery options, discounts, reviews, FAQs, and London location information.",
 };
 
 
@@ -64,9 +98,11 @@ export default async function Home() {
 
   return (
     <main className="overflow-hidden bg-stone-50 font-sans">
-       <PromoBar />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageJsonLd) }} />
+      <Banner />
+      <PromoBar />
       <CategorySlider categories={categories} />
-      {/* <Banner /> */}
 
       <div className="">
         <InfiniteMarquee bottomItems={categoryTitles} />

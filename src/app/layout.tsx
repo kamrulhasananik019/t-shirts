@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "Prime Prints",
+  applicationName: "Same Day T-Shirt Printing London",
   icons: {
     icon: [
       { url: "/icon/favicon.ico" },
@@ -47,28 +47,29 @@ export const metadata: Metadata = {
     shortcut: ["/icon/favicon.ico"],
   },
   title: {
-    default: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
-    template: "%s | Prime Prints",
+    default: "Same Day T-Shirt Printing London",
+    template: "%s | Same Day T-Shirt Printing London",
   },
   description:
-    "Prime Prints offers custom t-shirt printing in the UK with same day printing and fast delivery for urgent orders.",
+    "Same day t-shirt printing in London with fast UK delivery for urgent custom orders, branded tees, and event clothing.",
   keywords: [
-    "t-shirt printing uk",
-    "t-shirt printing uk",
-    "same day t-shirt printing",
-    "same day printing uk",
-    "custom t-shirt printing",
-    "uk t-shirt delivery",
+    "same day t-shirt printing london",
+    "t-shirt printing london",
+    "custom t-shirt printing london",
+    "same day printing london",
+    "same day delivery london",
+    "urgent t-shirt printing uk",
+    "branded t shirt printing",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
+    title: "Same Day T-Shirt Printing London",
     description:
-      "Custom t-shirt printing in the UK with same day printing, fast turnaround, and reliable delivery.",
+      "Same day t-shirt printing in London with fast turnaround, custom branding, and reliable UK delivery.",
     url: "/",
-    siteName: "Prime Prints",
+    siteName: "Same Day T-Shirt Printing London",
     locale: "en_GB",
     type: "website",
     images: [
@@ -76,15 +77,15 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&q=80",
         width: 1600,
         height: 900,
-        alt: "Prime Prints UK t-shirt printing same day delivery",
+        alt: "Same day t-shirt printing UK and London delivery",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Prime Prints | T-Shirt Printing UK Same Day Delivery",
+    title: "Same Day T-Shirt Printing London",
     description:
-      "UK t-shirt printing with same day printing and fast delivery for custom orders.",
+      "Same day t-shirt printing in London with fast delivery across the UK.",
     images: ["https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?w=1600&q=80"],
   },
   robots: {
@@ -96,16 +97,16 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "PrintShop",
-  name: "Prime Prints",
+  name: "Same Day T-Shirt Printing London",
   url: siteUrl,
   description:
-    "Custom t-shirt printing in the UK with same day printing and fast delivery.",
-  areaServed: { "@type": "Country", name: "United Kingdom" },
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "London",
-    addressCountry: "GB",
-  },
+    "Same day t-shirt printing in London with fast UK delivery for urgent custom orders.",
+  areaServed: [
+    { "@type": "City", name: "London" },
+    { "@type": "Country", name: "United Kingdom" },
+  ],
+  serviceType: "Same day t-shirt printing",
+  priceRange: "$$",
 };
 
 export default async function RootLayout({

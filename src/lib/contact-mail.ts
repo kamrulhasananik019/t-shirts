@@ -104,7 +104,7 @@ function buildMessage(input: ContactFormInput) {
     <div style="margin:0;background:#f5f5f4;padding:24px;font-family:Arial,sans-serif;color:#1c1917;line-height:1.6">
       <div style="max-width:760px;margin:0 auto;background:#ffffff;border:1px solid #e7e5e4;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px rgba(28,25,23,0.08)">
         <div style="background:linear-gradient(135deg,#1c1917 0%,#3f3f46 100%);color:#ffffff;padding:28px 32px">
-          <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#d6d3d1">Prime Prints contact request</p>
+          <p style="margin:0 0 6px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#d6d3d1">Same day t-shirt printing contact request</p>
           <h2 style="margin:0;font-size:26px;line-height:1.2">${escapeHtml(input.name)} sent a new enquiry</h2>
           <p style="margin:12px 0 0;color:#e7e5e4">Reply directly to the customer or use the summary below to prepare a quote.</p>
         </div>
@@ -160,7 +160,7 @@ function buildAutoReply(input: ContactFormInput) {
   const text = [
     `Hi ${input.name},`,
     '',
-    'Thanks for contacting Prime Prints. We have received your request and will review it shortly.',
+    'Thanks for contacting our team. We have received your request and will review it shortly.',
     '',
     `Category: ${category}`,
     `Product: ${product}`,
@@ -176,7 +176,7 @@ function buildAutoReply(input: ContactFormInput) {
     <div style="margin:0;background:#f5f5f4;padding:24px;font-family:Arial,sans-serif;color:#1c1917;line-height:1.6">
       <div style="max-width:720px;margin:0 auto;background:#ffffff;border:1px solid #e7e5e4;border-radius:18px;overflow:hidden">
         <div style="padding:28px 32px;background:linear-gradient(135deg,#0f172a 0%,#1c1917 100%);color:#ffffff">
-          <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#cbd5e1">Prime Prints</p>
+          <p style="margin:0 0 8px;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#cbd5e1">Same day t-shirt printing</p>
           <h2 style="margin:0;font-size:26px;line-height:1.2">We received your message</h2>
         </div>
 
@@ -216,7 +216,7 @@ function buildAutoReply(input: ContactFormInput) {
 
 export async function sendContactEmails(input: ContactFormInput): Promise<void> {
   const { config, transport } = createTransport();
-  const senderName = 'Prime Prints';
+  const senderName = 'Same day t-shirt printing';
   const from = `${senderName} <${config.mailbox}>`;
   const message = buildMessage(input);
   const autoReply = buildAutoReply(input);
@@ -236,7 +236,7 @@ export async function sendContactEmails(input: ContactFormInput): Promise<void> 
       from,
       to: input.email,
       replyTo: config.mailbox,
-      subject: 'Prime Prints received your request',
+      subject: 'Same day t-shirt printing received your request',
       text: autoReply.text,
       html: autoReply.html,
     }),

@@ -61,7 +61,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: seoTitle,
       description: seoDescription,
       url: canonicalPath,
-      siteName: 'Prime Prints',
+      siteName: 'Same Day T-Shirt Printing London',
       images: [{ url: seoImage, alt: category.image.alt || category.name }],
       type: 'website',
     },

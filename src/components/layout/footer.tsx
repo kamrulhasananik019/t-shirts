@@ -11,13 +11,12 @@ export default function Footer() {
               <Link href="/" prefetch={false} className="my-2 flex items-center">
                 <Image
                   src="/logo.png"
-                  alt="PrimePrint"
+                  alt="Same day t-shirt printing logo"
                   width={400}
                   height={120}
                   className="h-10 w-auto object-contain"
                 />
             </Link>
-            {/* <p className="mb-3 text-xs uppercase tracking-[0.22em] text-[#F8F8F8]/70">Prime Prints</p> */}
             <h3 className="mb-3 text-2xl font-black text-[#F8F8F8] [font-family:var(--font-playfair-display)]">
               Bring your ideas to print
             </h3>
@@ -61,7 +60,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col gap-2 border-t border-[#F0D542]/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-[#F8F8F8]/80 [font-family:var(--font-dm-sans)]">
-            {new Date().getFullYear()} Prime Prints. All rights reserved.
+            {new Date().getFullYear()} Same Day T-Shirt Printing London. All rights reserved.
           </p>
           <p className="text-xs text-[#F8F8F8]/80 [font-family:var(--font-dm-sans)]">
             Crafted for premium printing experiences.

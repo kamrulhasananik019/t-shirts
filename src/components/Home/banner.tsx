@@ -7,16 +7,16 @@ export default function Banner() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           <div>
             <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#0a72b2]">
-              UK T-Shirt Print Studio
+              London Same Day T-Shirt Printing
             </p>
 
             <h1 className="max-w-3xl font-serif text-3xl font-black leading-tight text-[#0a72b2] sm:text-4xl lg:text-5xl">
-              Same Day T-Shirt Printing With Reliable UK Delivery
+              Same Day T-Shirt Printing in London With Fast UK Delivery
             </h1>
 
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[#0a72b2] sm:text-base">
-              Built for real deadlines: event tees, staff uniforms, branded merchandise, and urgent reprints. Send
-              your artwork and we will prepare, print, and dispatch fast.
+              Built for urgent deadlines across London: event tees, staff uniforms, branded merchandise, and urgent
+              reprints. Send your artwork and we will prepare, print, and dispatch fast.
             </p>
 
             <div className="mt-7 flex flex-wrap gap-3">
@@ -41,7 +41,7 @@ export default function Banner() {
                 Same Day Production
               </div>
               <div className="rounded-lg border border-[#F8F8F8] bg-white px-4 py-3 text-sm text-[#0a72b2]">
-                UK-Wide Dispatch
+                London Priority Dispatch
               </div>
               <div className="rounded-lg border border-[#F8F8F8] bg-white px-4 py-3 text-sm text-[#0a72b2]">
                 Bulk & Single Runs

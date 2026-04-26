@@ -50,7 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: seoTitle,
       description: seoDescription,
       url: canonicalPath,
-      siteName: 'Prime Prints',
+      siteName: 'Same Day T-Shirt Printing London',
       images: [{ url: seoImage, alt: product.name }],
       type: 'website',
     },
@@ -115,7 +115,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
     sku: product.id,
     brand: {
       '@type': 'Brand',
-      name: 'Prime Prints',
+      name: 'Same Day T-Shirt Printing London',
     },
     url: `${siteUrl}${canonicalPath}`,
   };

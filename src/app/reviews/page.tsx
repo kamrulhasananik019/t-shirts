@@ -8,23 +8,23 @@ import { getApprovedReviews } from '@/services/review.service';
 export const revalidate = 604800;
 
 export const metadata: Metadata = {
-  title: 'Customer Reviews | Prime Prints',
+  title: 'Customer Reviews | Same Day T-Shirt Printing London',
   description:
-    'Read what our customers say about Prime Prints printing services, quality, delivery, and customer support.',
+    'Read what customers say about our printing services, quality, delivery, and customer support.',
   alternates: {
     canonical: '/reviews',
   },
   openGraph: {
-    title: 'Customer Reviews | Prime Prints',
+    title: 'Customer Reviews | Same Day T-Shirt Printing London',
     description:
-      'Discover customer testimonials and ratings for Prime Prints printing services.',
+      'Discover customer testimonials and ratings for our printing services.',
     url: '/reviews',
     type: 'website',
-    siteName: 'Prime Prints',
+    siteName: 'Same Day T-Shirt Printing London',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Customer Reviews | Prime Prints',
+    title: 'Customer Reviews | Same Day T-Shirt Printing London',
     description:
       'See what customers say about our printing quality and service.',
   },
@@ -45,7 +45,7 @@ export default async function ReviewsPage() {
   const reviewsJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'Prime Prints',
+    name: 'Same Day T-Shirt Printing London',
     url: siteUrl,
     ...(aggregateRating && { aggregateRating }),
     review: reviews.slice(0, 10).map((review) => ({
@@ -81,7 +81,7 @@ export default async function ReviewsPage() {
             Customer Reviews
           </h1>
           <p className="mt-4 text-base leading-relaxed text-stone-600">
-            Read what our customers say about Prime Prints printing quality, delivery, and service.
+            Read what our customers say about our printing quality, delivery, and service.
           </p>
           {reviews.length > 0 && (
             <div className="mt-6 flex items-center gap-3">
@@ -112,7 +112,7 @@ export default async function ReviewsPage() {
         <div className="mt-16 rounded-2xl border border-stone-200 bg-white p-8 text-center md:p-10">
           <h2 className="font-serif text-2xl font-bold text-stone-900">Share your experience</h2>
           <p className="mt-3 text-sm text-stone-600">
-            Have you used Prime Prints? We&apos;d love to hear about your experience.
+            Have you used our service? We&apos;d love to hear about your experience.
           </p>
           <Link
             href="/contact"

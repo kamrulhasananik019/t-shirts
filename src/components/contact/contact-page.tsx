@@ -40,8 +40,8 @@ const contactMethods = [
   {
     icon: Mail,
     label: "Send your brief",
-    value: "hello@primeprints.co.uk",
-    href: "mailto:hello@primeprints.co.uk",
+    value: "hello@tshirtprintinglondon.co.uk",
+    href: "mailto:hello@tshirtprintinglondon.co.uk",
     helper: "Share artwork, quantities, and deadlines",
   },
   {
@@ -228,7 +228,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
                 Client Support Desk
               </p>
               <h1 className="text-4xl font-bold tracking-tight text-[#0a72b2] sm:text-5xl">
-                Contact Prime Prints
+                Contact Same Day T-Shirt Printing London
               </h1>
               <p className="mt-4 text-lg leading-8 text-[#0a72b2]">
                 Speak to a print team that understands deadlines, details, and delivery.
@@ -575,7 +575,7 @@ export default function ContactPageContent({ categories }: ContactPageContentPro
             <div className="overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
               <div className="relative h-48 w-full bg-stone-200">
                  <iframe
-                  title="Prime Prints location map"
+                  title="Same day t-shirt printing London location map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.839887706!2d-0.266403!3d51.528308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
