@@ -2,13 +2,58 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 
 import { hasRichTextContent, requireAdminSession, toStoredRichText } from '@/lib/admin-api';
-import { deleteAdminProduct, resolveCategoryIds, updateAdminProduct } from '@/services/product.service';
+import { deleteR2Object, getR2KeyFromMediaUrl } from '@/lib/r2';
+import { deleteAdminProduct, getProductById, resolveCategoryIds, updateAdminProduct } from '@/services/product.service';
 export const runtime = 'nodejs';
+
+function toR2KeyFromAnyUrl(url: string, requestUrl: string): string | null {
+  const normalizedUrl = new URL(url, requestUrl).toString();
+  return getR2KeyFromMediaUrl(normalizedUrl);
+}
+
+function collectR2KeysFromUrls(urls: string[], requestUrl: string): string[] {
+  return Array.from(
+    new Set(
+      urls
+        .map((url) => url.trim())
+        .filter(Boolean)
+        .map((url) => toR2KeyFromAnyUrl(url, requestUrl))
+        .filter((key): key is string => Boolean(key))
+    )
+  );
+}
+
+async function cleanupR2Keys(keys: string[], context: { productId: string; reason: string }) {
+  for (const key of keys) {
+    try {
+      await deleteR2Object(key);
+    } catch (cleanupError) {
+      console.error('Failed to cleanup product R2 object', {
+        productId: context.productId,
+        reason: context.reason,
+        key,
+        error: cleanupError instanceof Error ? cleanupError.message : cleanupError,
+      });
+    }
+  }
+}
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAdminSession();
     const { id } = await params;
+    let previousImageUrls: string[] = [];
+    let previousSeoImageUrl: string | null = null;
+    try {
+      const previousProduct = await getProductById(id);
+      previousImageUrls = previousProduct?.images?.map((item) => item.url).filter(Boolean) || [];
+      previousSeoImageUrl = previousProduct?.seo?.image || null;
+    } catch (previousLookupError) {
+      console.error('Failed to load previous product before image cleanup', {
+        productId: id,
+        error: previousLookupError instanceof Error ? previousLookupError.message : previousLookupError,
+      });
+    }
     const body = (await request.json()) as {
       name?: string;
       imageUrls?: string[];
@@ -43,6 +88,12 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     }
 
     await updateAdminProduct(id, { name, imageUrls, badges, categoryIds, description, shortDescription, seo });
+
+    const previousKeys = collectR2KeysFromUrls([...previousImageUrls, previousSeoImageUrl || ''], request.url);
+    const nextKeys = new Set(collectR2KeysFromUrls([...imageUrls, seo.image], request.url));
+    const removedKeys = previousKeys.filter((key) => !nextKeys.has(key));
+    await cleanupR2Keys(removedKeys, { productId: id, reason: 'product-update' });
+
     revalidateTag('catalog', 'max');
 
     return NextResponse.json({ ok: true });
@@ -57,7 +108,21 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   try {
     await requireAdminSession();
     const { id } = await params;
+    let keysToCleanup: string[] = [];
+
+    try {
+      const previousProduct = await getProductById(id);
+      const previousImageUrls = previousProduct?.images?.map((item) => item.url).filter(Boolean) || [];
+      keysToCleanup = collectR2KeysFromUrls([...previousImageUrls, previousProduct?.seo?.image || ''], _request.url);
+    } catch (previousLookupError) {
+      console.error('Failed to load previous product before delete cleanup', {
+        productId: id,
+        error: previousLookupError instanceof Error ? previousLookupError.message : previousLookupError,
+      });
+    }
+
     await deleteAdminProduct(id);
+    await cleanupR2Keys(keysToCleanup, { productId: id, reason: 'product-delete' });
     revalidateTag('catalog', 'max');
     return NextResponse.json({ ok: true });
   } catch (error) {

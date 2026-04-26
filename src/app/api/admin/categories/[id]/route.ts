@@ -2,13 +2,58 @@ import { NextResponse } from 'next/server';
 import { revalidateTag } from 'next/cache';
 
 import { hasRichTextContent, requireAdminSession, toStoredRichText } from '@/lib/admin-api';
-import { deleteAdminCategory, updateAdminCategory } from '@/services/category.service';
+import { deleteR2Object, getR2KeyFromMediaUrl } from '@/lib/r2';
+import { deleteAdminCategory, getCategoryById, updateAdminCategory } from '@/services/category.service';
 export const runtime = 'nodejs';
+
+function toR2KeyFromAnyUrl(url: string, requestUrl: string): string | null {
+  const normalizedUrl = new URL(url, requestUrl).toString();
+  return getR2KeyFromMediaUrl(normalizedUrl);
+}
+
+function collectR2KeysFromUrls(urls: string[], requestUrl: string): string[] {
+  return Array.from(
+    new Set(
+      urls
+        .map((url) => url.trim())
+        .filter(Boolean)
+        .map((url) => toR2KeyFromAnyUrl(url, requestUrl))
+        .filter((key): key is string => Boolean(key))
+    )
+  );
+}
+
+async function cleanupR2Keys(keys: string[], context: { categoryId: string; reason: string }) {
+  for (const key of keys) {
+    try {
+      await deleteR2Object(key);
+    } catch (cleanupError) {
+      console.error('Failed to cleanup category R2 object', {
+        categoryId: context.categoryId,
+        reason: context.reason,
+        key,
+        error: cleanupError instanceof Error ? cleanupError.message : cleanupError,
+      });
+    }
+  }
+}
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await requireAdminSession();
     const { id } = await params;
+    let previousCategoryImageUrl: string | null = null;
+    let previousCategorySeoImageUrl: string | null = null;
+    try {
+      const previousCategory = await getCategoryById(id);
+      previousCategoryImageUrl = previousCategory?.imageUrl || null;
+      previousCategorySeoImageUrl = previousCategory?.seo?.image || null;
+    } catch (previousLookupError) {
+      console.error('Failed to load previous category before image cleanup', {
+        categoryId: id,
+        error: previousLookupError instanceof Error ? previousLookupError.message : previousLookupError,
+      });
+    }
     const body = (await request.json()) as {
       name?: string;
       imageUrl?: string;
@@ -40,6 +85,15 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     }
 
     await updateAdminCategory(id, { name, imageUrl, parentId, shortDescription, description, seo });
+
+    const previousKeys = collectR2KeysFromUrls(
+      [previousCategoryImageUrl || '', previousCategorySeoImageUrl || ''],
+      request.url
+    );
+    const nextKeys = new Set(collectR2KeysFromUrls([imageUrl, seo.image], request.url));
+    const removedKeys = previousKeys.filter((key) => !nextKeys.has(key));
+    await cleanupR2Keys(removedKeys, { categoryId: id, reason: 'category-update' });
+
     revalidateTag('catalog', 'max');
 
     return NextResponse.json({ ok: true });
@@ -54,7 +108,23 @@ export async function DELETE(_request: Request, { params }: { params: Promise<{ 
   try {
     await requireAdminSession();
     const { id } = await params;
+    let keysToCleanup: string[] = [];
+
+    try {
+      const previousCategory = await getCategoryById(id);
+      keysToCleanup = collectR2KeysFromUrls(
+        [previousCategory?.imageUrl || '', previousCategory?.seo?.image || ''],
+        _request.url
+      );
+    } catch (previousLookupError) {
+      console.error('Failed to load previous category before delete cleanup', {
+        categoryId: id,
+        error: previousLookupError instanceof Error ? previousLookupError.message : previousLookupError,
+      });
+    }
+
     await deleteAdminCategory(id);
+    await cleanupR2Keys(keysToCleanup, { categoryId: id, reason: 'category-delete' });
     revalidateTag('catalog', 'max');
     return NextResponse.json({ ok: true });
   } catch (error) {
