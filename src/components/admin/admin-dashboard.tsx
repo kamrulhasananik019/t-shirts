@@ -807,7 +807,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
   ];
 
   return (
-    <main className="relative min-h-screen overflow-hidden bg-(--pp-bg) pt-44 text-(--pp-text) md:pt-48 lg:pt-52">
+    <main className="relative min-h-screen overflow-x-hidden bg-(--pp-bg) pt-44 text-(--pp-text) md:pt-48 lg:pt-52">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(85,105,47,0.2),transparent_35%),radial-gradient(circle_at_bottom_left,rgba(248,248,248,0.35),transparent_40%)]" />
 
       {(isLoading || saving) && (
@@ -1051,8 +1051,29 @@ export default function AdminDashboard({ adminEmail }: Props) {
         ) : null}
 
         {activeSection === 'categories' ? (
-          <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-            <form onSubmit={createCategory} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
+          <>
+            <div className="sticky top-44 z-30 mt-6 mb-4 flex flex-wrap gap-2 rounded-2xl border border-[#f8f8f8] bg-white/95 p-3 shadow-sm backdrop-blur md:top-48 lg:top-52">
+              <button
+                type="submit"
+                form="admin-category-form"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+              >
+                {editingCategoryId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                {editingCategoryId ? 'Update Category' : 'Create Category'}
+              </button>
+              {editingCategoryId ? (
+                <button
+                  type="button"
+                  onClick={resetCategoryEdit}
+                  className="rounded-xl border border-[#f8f8f8] px-4 py-2 text-sm font-medium text-[#f0d542]"
+                >
+                  Cancel Edit
+                </button>
+              ) : null}
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+            <form id="admin-category-form" onSubmit={createCategory} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-[#0a72b2]">
                   {editingCategoryId ? 'Update Category' : 'Create Category'}
@@ -1237,11 +1258,33 @@ export default function AdminDashboard({ adminEmail }: Props) {
               </div>
             </section>
           </div>
+          </>
         ) : null}
 
         {activeSection === 'products' ? (
-          <div className="mt-6 grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
-            <form onSubmit={createProduct} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
+          <>
+            <div className="sticky top-44 z-30 mt-6 mb-4 flex flex-wrap gap-2 rounded-2xl border border-[#f8f8f8] bg-white/95 p-3 shadow-sm backdrop-blur md:top-48 lg:top-52">
+              <button
+                type="submit"
+                form="admin-product-form"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#0a72b2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#f0d542]"
+              >
+                {editingProductId ? <FilePenLine className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                {editingProductId ? 'Update Product' : 'Create Product'}
+              </button>
+              {editingProductId ? (
+                <button
+                  type="button"
+                  onClick={resetProductEdit}
+                  className="rounded-xl border border-[#f8f8f8] px-4 py-2 text-sm font-medium text-[#f0d542]"
+                >
+                  Cancel Edit
+                </button>
+              ) : null}
+            </div>
+
+            <div className="grid gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+            <form id="admin-product-form" onSubmit={createProduct} className="rounded-3xl border border-[#0a72b2]/10 bg-white p-5 shadow-sm">
               <div className="mb-4 flex items-center justify-between">
                 <h3 className="text-lg font-bold text-[#0a72b2]">
                   {editingProductId ? 'Update Product' : 'Create Product'}
@@ -1456,6 +1499,7 @@ export default function AdminDashboard({ adminEmail }: Props) {
               </div>
             </section>
           </div>
+          </>
         ) : null}
 
         {activeSection === 'reviews' ? (
