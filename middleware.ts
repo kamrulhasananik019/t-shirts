@@ -14,15 +14,24 @@ function parseOrigin(value: string | null): string | null {
 
 function getAllowedOrigins(): Set<string> {
   const siteOrigin = parseOrigin(process.env.NEXT_PUBLIC_SITE_URL ?? null);
+  const vercelOrigin = parseOrigin(
+    process.env.NEXT_PUBLIC_VERCEL_URL
+      ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+      : process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : null
+  );
   const extraOrigins = (process.env.API_ALLOWED_ORIGINS ?? '')
     .split(',')
     .map((value) => parseOrigin(value.trim()))
     .filter((value): value is string => Boolean(value));
 
   const origins = new Set<string>([
-    'https://www.primeprint.uk',
-    'https://primeprint.uk',
+    'https://tshirtprintinuk.co.uk',
+    'https://www.tshirtprintinuk.co.uk',
+    'https://t-shirts-seven.vercel.app',
     ...(siteOrigin ? [siteOrigin] : []),
+    ...(vercelOrigin ? [vercelOrigin] : []),
     ...extraOrigins,
   ]);
 
